@@ -10,6 +10,8 @@ im.list()
 b2 = im.import("sentinel.dolomites.b2.tif")
 plot(b2, col=cl)
 
+# colors change
+
 cl = colorRampPalette(c("black", "dark grey", "light grey"))(100)
 plot(b2, col=cl)
 
@@ -21,6 +23,78 @@ plot(b2, col=cl)
 
 cl = colorRampPalette(c("royalblue3", "seagreen1", "red1"))(100)
 plot(b2, col=cl)
+
+# banda green
+b3 = im.import("sentinel.dolomites.b3.tif")
+
+# banda red
+b4 = im.import("sentinel.dolomites.b4.tif")
+
+# banda NIR (near infrared)
+b8 = im.import("sentinel.dolomites.b8.tif")
+
+# plottare più bande con funzione multiframe, prima era fatto con par
+# in par ci va un multiframe: un grafico con più immagini
+# in questo caso una sola riga e 4 colonne
+
+par(mfrow=c(1,4))
+plot(b2)
+plot(b3)
+plot(b4)
+plot(b8)
+
+# per rimuovere
+dev.off()
+
+# ora usiamo la funzione 
+im.multiframe(1,4)
+plot(b2)
+plot(b3)
+plot(b4)
+plot(b8)
+
+# plottare invertendo righe e colonne
+im.multiframe(4,1)
+plot(b2)
+plot(b3)
+plot(b4)
+plot(b8)
+
+# colors change
+cl = colorRampPalette(c("black","light grey"))(100)
+plot(b2, col=cl)
+plot(b3, col=cl)
+plot(b4, col=cl)
+plot(b8, col=cl)
+
+# sovrapporre le bande in un'unica immagine
+sent = c(b2, b3, b4, b8)
+sent
+plot(sent, col=cl)
+
+# cambiare i nomi
+names(sent) = c("b2blue","b3green","b4red","b8NIR")
+sent
+
+plot(sent, col=cl)
+plot(sent)
+
+# ora voglio plottare solo una banda, es b8 NIR
+plot(sent$b8NIR)
+# stessa cosa ma selezionando il n dell'elemento
+plot(sent[[4]])
+
+# importing several bands together, importiamo tutti gli elementi visti fin ora con un solo comando
+sentdol = im.import ("sentinel.dolomites")
+
+# import several sets together, correlazioni (ogni punto nei grafici di correlazione rappresenta un pixel)u
+pairs(sentdol)
+
+# pacchetti SEMPRE in alto !!! VIRIDIS, un pacchetto contenente diverse palette
+install.packages("viridis")
+library(viridis)
+
+plot(sentdol,col=viridis(100))
 
 ####
 # DATA VISUALISATION
