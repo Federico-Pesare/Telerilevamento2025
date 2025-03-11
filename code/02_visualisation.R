@@ -96,6 +96,34 @@ library(viridis)
 
 plot(sentdol,col=viridis(100))
 
+#NUOVA LEZIONE
+library(terra)
+library(imageRy)
+library(viridis)
+sentdol = im.import("sentinel.dolomites")
+
+#RECAP
+# 1 = blue (b2)
+# 2 = green (b3)
+# 3 = red (b4)
+# 4 = NIR (b8)
+
+#Ottenere l'immagine a colori naturali, le componenti RGB sono 3 quindi 3 bande alla volta
+im.plotRGB(sentdol, r=3, g=2, b=1)
+
+#False colours
+im.plotRGB(sentdol, r=4, g=3, b=2)
+#Abbiamo montato sulla componente red dello schema RGB l'infrarosso vicino, dove le piante rifletto tanto
+
+#ora usare NIR sulla componente verde
+im.plotRGB(sentdol, r=3, g=4, b=1)
+#tutto ciò che è verde è vegetazione, ma basata sulla riflettanza del NIR!!!
+#CIO' CHE FA VARIARE IL COLORE DELL'IMMAGINE E' L'INFRAROSSO
+
+
+
+
+
 ####
 # DATA VISUALISATION
 
