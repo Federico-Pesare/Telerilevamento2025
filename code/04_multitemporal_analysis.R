@@ -39,7 +39,43 @@ dev.off()
 grdif = gr[[1]] - gr[[4]]
 plot(grdif)
 
+# Ridgeline plots, creazione distribuzione delle frequenze in una serie temporale. Scale è un carattere obbligatorio ed è l'h del grafico
+# prende tutti i pixel per anno e ne calcola la frequenza
+# to create ridgelines plot ggridges is needed
+install.packages("ggridges")
+library(ggridges)
+im.ridgeline(gr, scale=1)
+im.ridgeline(gr, scale=1, palette="inferno") # to change colours
 
+# import NDVI data from Sentinel2
+ndvi = im.import("Sentinel2")
+ndvi 
+im.ridgeline(ndvi, scale=2) 
+# the previous funtion provides 1 graphic!!! Because the name is the same for the 4 images
+# Changing names
+names(ndvi) = c("02_Feb", "05_May", "08_Aug", "11_Nov")
+ndvi
+im.ridgeline(ndvi, scale=2)
+
+pairs(ndvi)
+
+plot(ndvi[[1]], ndvi[[2]])
+
+# x = y dunque la linea ipotetica dove i dati di Feb (x) sono uguali a May (y)
+# y = a + bx
+# a=0, b=1 because the two values are identical
+# y = x (intercetta all'origine)
+
+abline(0,1,col="red")
+
+# assegnare lo stesso range al grafico in modo che la retta passi per l'origine
+plot(ndvi[[1]], ndvi[[2]], xlim=c(-0.3,0.9), ylim=c(-0,3,0.9))
+
+im.multiframe(1,2)
+plot(ndvi[[1]])
+plot(ndvi[[2]])
+plot(ndvi[[1]], ndvi[[2]], xlim=c(-0.3,0.9), ylim=c(-0,3,0.9))
+abline(0,1,col="red")
 
 
 
