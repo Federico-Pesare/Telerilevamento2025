@@ -54,10 +54,15 @@ p2 = ggplot(tabout, aes(x=class, y=y2006, color=class)) + geom_bar(stat="identit
 p1 + p2     # grafici uno di fianco all'altro
 p1 / p2     # grafici uno sull'altro   
 
+# per oottenere i grafici (barre) colorate internamente e non solo il contorno
+p1 = ggplot(tabout, aes(x=class, y=y1992, fill=class, color=class)) + geom_bar(stat="identity") + ylim(c(0,100))
+
 # accostiamo tutti i grafici
 p0 = im.ggplot(mato1992)
 p00 = im.ggplot(mato2006)
 p0 + p00 + p1 + p2
+
+# controllare sul file del prof il modo per accostare tutte e 4 le barre
 
 
 
