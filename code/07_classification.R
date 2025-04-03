@@ -69,10 +69,22 @@ p0 + p00 + p1 + p2
 solar = im.import("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg")
 
 # classify the image in 3 classes
-
 solarc = im.classify(solar, num_clusters=3)
 
+# plot the original image beside the classified one
+im.multiframe(1,2)
+plot(solar)
+plot(solarc)
 
+# 3 = low
+# 1 = medium
+# 2 = high
+# sostituire i 3 valori con la classe energetica alla quale corrispondono
+solarcs = subst(solarc, c(3,1,2), c("low","medium","high"))
+plot(solarcs)
+# ordering using with other names 
+solarcs = subst(solarc, c(3,1,2), c("c1_low","c2_medium","c3_high"))
+plot(solarcs)
 
 
        
