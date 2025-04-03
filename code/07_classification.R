@@ -64,6 +64,15 @@ p0 + p00 + p1 + p2
 
 # controllare sul file del prof il modo per accostare tutte e 4 le barre
 
+# cont...
+
+solar = im.import("Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg")
+
+# classify the image in 3 classes
+
+solarc = im.classify(solar, num_clusters=3)
+
+
 
 
        
