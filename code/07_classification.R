@@ -86,6 +86,24 @@ plot(solarcs)
 solarcs = subst(solarc, c(3,1,2), c("c1_low","c2_medium","c3_high"))
 plot(solarcs)
 
+# Calculate the percentages of the sun energy with one line of code
+solarperc = freq(solarc)*100 / ncell(solarc)
+solarperc
+# oppure, ma specificando l'argomento perchè senno non riesce a moltiplicare gli altri argomenti della tabellina
+solarperc = freq(solarcs)$count *100 / ncell(solarcs)
+solarperc
+# 37.33349 41.44658 21.21993
+
+# create dataframe
+class = c("c1_low","c2_medium","c3_high")
+perc = c(38,41,21)
+tabsol = data.frame(class,perc)
+tabsol
+
+# final ggplot
+ggplot(tabsol, aes(x=class, y=perc, fill=class, color=class)) + geom_bar(stat="identity")
+ggplot(tabsol, aes(x=class, y=perc, fill=class, color=class)) + geom_bar(stat="identity") + coord_flip()   # to reverse
+ggplot(tabsol, aes(x=class, y=perc, fill=class, color=class)) + geom_bar(stat="identity") + coord_flip() + scale_y_reverse()
 
        
 ##########################
