@@ -34,9 +34,19 @@ im.plotRGB(sent, r=3, g=2, b=1)
 
 # associate the nir to the first element
 nir = sent[[1]]
+plot(nir)
+plot(nir, col=inferno(100))
 
+# FOCAL function
+sd3 = focal(nir, w=c(3,3), fun=sd)
+plot(sd3)
+# the standard deviation show us the most variable zones on the image
 
+# Calculate standard deviation of the nir band with a moving window of 5x5 pixels (intervallo più ampio)
+sd5 = focal(nir, w=c(5,5), fun=sd)
+plot(ds5)
 
+# Use ggplot to plot the standard deviation
 
 
 ##############################################
