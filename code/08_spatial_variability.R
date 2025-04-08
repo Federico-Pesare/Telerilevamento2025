@@ -47,6 +47,18 @@ sd5 = focal(nir, w=c(5,5), fun=sd)
 plot(ds5)
 
 # Use ggplot to plot the standard deviation
+im.ggplot(sd3)
+
+# Use patchwork to plot one beside the other one
+library(patchwork)
+p1 = im.ggplot(sd3)
+p2 = im.ggplot(sd5)
+p1+p2
+
+# Plot the original set in RGB (ggRGB) togheter with the standard deviationo with 3 and 5 pixels
+library(RStoolbox)
+p3 = ggRGB(sent, r=1, g=2, b=3)
+p1 + p2 + p3
 
 
 ##############################################
