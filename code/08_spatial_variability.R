@@ -32,6 +32,9 @@ im.plotRGB(sent, r=1, g=2, b=3)
 im.plotRGB(sent, r=2, g=1, b=3)
 im.plotRGB(sent, r=3, g=2, b=1)
 
+# associate the nir to the first element
+nir = sent[[1]]
+
 
 
 
