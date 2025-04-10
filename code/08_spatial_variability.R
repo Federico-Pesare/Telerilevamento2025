@@ -7,7 +7,7 @@ m = (23 + 22 + 23 + 49) / 4
 # m = 29.25
 
 num = (23-29.5)^2 + (22-29.5)^2 + (23-29.5)^2 + (49-29.5)^2
-den = 4
+den = 4 - 1    # -1 is an adjustment for samples instead of populations
 variance = num / den
 stdev = sqrt(variance)
 
