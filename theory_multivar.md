@@ -4,4 +4,4 @@ The theory behind principal component analysis can be found [here](https://numxl
 
 A graphical sketch is the following:
 
-<img src=".../Pics/pca.png"/>
+<img src="Pics/pca.png"/>
