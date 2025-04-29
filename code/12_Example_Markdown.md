@@ -22,9 +22,9 @@ fires = flip(fires)
 plot(fires)
 ```
 
-The image is the following:
+The image is the following: *trascinare l'immagine*
 
-![fires]![Wildfires](https://github.com/user-attachments/assets/d3760f57-2f62-48c2-99e0-36b845f58cfb)
+![Wildfires](https://github.com/user-attachments/assets/d3760f57-2f62-48c2-99e0-36b845f58cfb)
 
 
 ## Data analysis
@@ -36,3 +36,6 @@ In order to visualize the index with another viridis palette we made use of the 
 ```r
 plot(fireindex, col=inferno(100))
 ```
+
+The output is the following:
+
