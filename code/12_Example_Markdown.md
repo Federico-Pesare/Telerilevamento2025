@@ -29,6 +29,20 @@ The image is the following: *trascinare l'immagine*
 
 ## Data analysis
 
+Based on the data gathered from the site we can caluclate an index, using the first two bands:
+
+fireindex = fires[[1]] - fires[[2]]
+plot(fireindex)
+
+In order to export the index, we can use the png() function like:
+
+png("fireindex.png")
+plot(fireindex)
+dev.off()
+
+The index looks like:
+
+
 ## Index visualisation by viridis
 
 In order to visualize the index with another viridis palette we made use of the following code:
