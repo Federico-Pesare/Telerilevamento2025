@@ -11,3 +11,7 @@ library
 > dry2017=flip(dry2017)
 > plot(dry2017)
 > dry2017c = im.classify(dry2017, num_clusters=3)
+# class1 = forest
+# class2 = human
+
+pdry2017 = freq(dry2017c)*100 / ncell(dry2017c)
