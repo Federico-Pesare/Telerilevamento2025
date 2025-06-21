@@ -22,3 +22,10 @@ dry2017c=im.classify(dry2017_masked, num_clusters=3)
 # class 1 = foresta decidua
 # class 2 = suolo degradato
 
+# calcolo area percentuale
+pdry2017 = freq(dry2017c)*100 / ncell(dry2017c)
+pdry2017
+# class1 = 45.64
+# class2 = 31.57
+
+
