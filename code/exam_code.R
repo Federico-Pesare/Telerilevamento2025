@@ -1,7 +1,7 @@
 # pacchetti impiegati per condurre l'analisi
 library(terra)
 library(imageRy)
-library
+library(ggplot2)
 
 # 1. LAND-COVER CLASSIFICATION
 # importo immagini SCL (Sentinel-2 Scene Classification Layer) e ribaldo per visualizzarle correttamente: funzione flip()
@@ -149,3 +149,21 @@ pibera25
 
 dev.off()
 
+# Grafico a barre delle variazioni annue nella percentuale di suolo arido
+# creare dataframe
+anno = c("2019","2020","2021","2022","2023","2024","2025")
+perc = c(1.40, 3.71, 2.86, 62.31, 45.89, 1.89, 18.47)
+SuoloArido = data.frame(anno,perc)
+SuoloArido
+# grafico a barre
+ggplot(SuoloArido, aes(x=anno, y=perc)) + labs(x = "Anno", y = "Copertura %") + geom_bar(stat="identity",fill="sienna3") + theme_minimal()
+
+# Confronto percentuali suolo arido / vegetazione nella serie temporale 2019 - 2025
+# dataframe "lungo"
+anno = rep(c("2019", "2020", "2021", "2022", "2023", "2024", "2025"), times = 2)
+classe = c(rep("Suolo arido", 7),rep("Vegetazione emersa", 7))
+perc = c(1.40, 3.71, 2.86, 62.31, 45.89, 1.89, 18.47, 86.45, 87.51, 90.41, 34.62, 51.18, 89.46, 72.51)
+copertura = data.frame(anno, classe, perc)
+copertura
+# grafico a barre affiancato 
+ggplot(copertura, aes(x=anno, y=perc, fill=classe)) + geom_bar(stat="identity", position="dodge") + scale_fill_manual(values = c("sienna3", "seagreen3"), name=NULL) + labs(x = "Anno",y = "Copertura (%)") + ylim(0,100) + theme_minimal() 
