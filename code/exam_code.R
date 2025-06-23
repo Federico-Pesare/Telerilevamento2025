@@ -4,9 +4,10 @@ library(imageRy)
 library
 
 # 1. LAND-COVER CLASSIFICATION
-# importo immagini SCL (Sentinel-2 Scene Classification Layer) e ribaldo per visualizzarle correttamente: funzione flip().
-# classificazione in 4 aree: Aree palustri, Vegetazione emersa, Suoli aridi, Acqua permanente. 
-# Calcolo delle % per ogni classe.
+# importo immagini SCL (Sentinel-2 Scene Classification Layer) e ribaldo per visualizzarle correttamente: funzione flip()
+# La classificazione delle classi è interpretata visivamente, sulla base della distribuzione dei colori/clusters nello spazio. 
+# 4 classi individuate: Aree palustri, Vegetazione emersa, Acqua, Suolo arido   ->   Calcolo %
+# Il codice è generico e può essere usato su qualsiasi immagine SCL o simile, previa interpretazione delle classi risultanti.
 
 # 2019: baseline; ecosistema non perturbato
 
