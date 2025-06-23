@@ -154,7 +154,7 @@ dev.off()
 
 # creazione dataframe "lungo" per realizzare un grafico a barre raggruppate, le prime 7 percentuali si riferiscono al suolo arido, le ultime 7 alla vegetazione
 anno = rep(c("2019", "2020", "2021", "2022", "2023", "2024", "2025"), times = 2)
-classe = c(rep("Suolo arido", 7),rep("Vegetazione emersa", 7))
+classe = c(rep("Suolo arido", 7),rep("Vegetazione", 7))
 perc = c(1.40, 3.71, 2.86, 62.31, 45.89, 1.89, 18.47, 86.45, 87.51, 90.41, 34.62, 51.18, 89.46, 72.51)
 copertura = data.frame(anno, classe, perc)
 copertura
