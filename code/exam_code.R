@@ -166,4 +166,4 @@ perc = c(1.40, 3.71, 2.86, 62.31, 45.89, 1.89, 18.47, 86.45, 87.51, 90.41, 34.62
 copertura = data.frame(anno, classe, perc)
 copertura
 # grafico a barre affiancato 
-ggplot(copertura, aes(x=anno, y=perc, fill=classe)) + geom_bar(stat="identity", position="dodge") + scale_fill_manual(values = c("sienna3", "seagreen3"), name=NULL) + labs(x = "Anno",y = "Copertura (%)") + ylim(0,100) + theme_minimal() 
+ggplot(copertura, aes(x=anno, y=perc, fill=classe)) + geom_bar(stat="identity", position="dodge") + scale_fill_manual(values = c("sienna3", "seagreen3"), name=NULL) + labs(x = "Anno",y = "Copertura%") + ylim(0,100) + theme_minimal() 
