@@ -166,3 +166,58 @@ lcc_barplot
 # esportare il grafico
 ggsave("lcc_barplot.jpg", plot = lcc_barplot,width = 8, height = 5, dpi = 300)
 
+
+# INDICI SPETTRALI
+
+# Percorso della cartella contenente le sottocartelle per ogni anno della sequenza 2019 - 2025
+
+# Anni da processare
+anni <- c(2019, 2020, 2021, 2022, 2023, 2024, 2025)
+
+# Tabella vuota per visualizzare il valore della media di ogni indice per anno
+tab.indici <- data.frame(Anno = integer(), NDVI = numeric(), NDMI = numeric(), NBR = numeric())
+
+# loop
+for (anno in anni) {
+  cat("Indici spettrali febbraio", anno, "\n")
+
+# percorso alle cartelle contenenti le bande
+path <- file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff")
+
+
+# Carica le bande
+  blue  <- rast(file.path(path, "B02.tiff"))
+  red   <- rast(file.path(path, "B04.tiff"))
+  nir   <- rast(file.path(path, "B08.tiff"))
+  swir1 <- rast(file.path(path, "B11.tiff"))
+  swir2 <- rast(file.path(path, "B12.tiff"))
+  
+# Calcolo indici
+  ndvi <- (nir - red) / (nir + red)
+  ndmi <- (nir - swir1) / (nir + swir1)
+  nbr  <- (nir - swir2) / (nir + swir2)
+
+# Calcolo medie degli indici
+  ndvi_mean <- global(ndvi, fun = "mean", na.rm = TRUE)[1]
+  ndmi_mean <- global(ndmi, fun = "mean", na.rm = TRUE)[1]
+  nbr_mean  <- global(nbr,  fun = "mean", na.rm = TRUE)[1] 
+
+# Aggiungi i risultati alla tabella
+  tab.indici <- rbind(tab.indici, data.frame(Anno = anno, NDVI = as.numeric(ndvi_mean), NDMI = as.numeric(ndmi_mean), NBR  = as.numeric(nbr_mean)))
+  rownames(tab.indici) <- NULL
+                                             
+# Cartella di output per raster indici
+out_dir <- file.path("C:/Users/feder/Desktop", "indici", as.character(anno))
+dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+    
+# Salvataggio raster indici
+  writeRaster(ndvi, file.path(out_dir, "NDVI.tif"), overwrite = TRUE)
+  writeRaster(ndmi, file.path(out_dir, "NDMI.tif"), overwrite = TRUE)
+  writeRaster(nbr,  file.path(out_dir, "NBR.tif"),  overwrite = TRUE)
+  
+  cat("✓ Indici salvati in:", out_dir, "\n")
+}
+tab.indici
+
+# esporto la tabella degli indici
+write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", row.names = FALSE)
