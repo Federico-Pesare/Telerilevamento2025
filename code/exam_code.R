@@ -235,3 +235,19 @@ tab.indici
 
 # esporto la tabella degli indici
 write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", row.names = FALSE)
+
+
+# RIDGELINE PLOTS
+
+# Imposta la cartella dove sono i raster
+setwd("percorso/alla/cartella")  # ← cambia qui!
+
+# Importa tutti i raster NDVI in un'unica riga
+ndvi <- rast(list.files(pattern = "NDVI\\d{2}\\.tif$"))
+
+# Ridgeline plot
+im.ridgeline(ndvi,
+             names = names(ndvi),
+             ylab = "Anno",
+             xlab = "NDVI",
+             main = "Distribuzione NDVI (2019–2025)")
