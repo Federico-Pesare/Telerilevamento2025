@@ -197,7 +197,7 @@ path <- file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff"
   ndmi <- (nir - swir1) / (nir + swir1)
   nbr  <- (nir - swir2) / (nir + swir2)
 
-# Calcolo medie degli indici
+# Calcolo medie degli indici, eliminando eventuali NA ed estraendo il solo valore numerico con [1] per il dataframe 
   ndvi_mean <- global(ndvi, fun = "mean", na.rm = TRUE)[1]
   ndmi_mean <- global(ndmi, fun = "mean", na.rm = TRUE)[1]
   nbr_mean  <- global(nbr,  fun = "mean", na.rm = TRUE)[1] 
