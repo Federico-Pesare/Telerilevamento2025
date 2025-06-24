@@ -240,14 +240,13 @@ write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", 
 # RIDGELINE PLOTS
 
 # Imposta la cartella dove sono i raster
-setwd("percorso/alla/cartella")  # ← cambia qui!
+setwd("C:/Users/feder/Desktop/indici/NDVI") 
 
 # Importa tutti i raster NDVI in un'unica riga
 ndvi <- rast(list.files(pattern = "NDVI\\d{2}\\.tif$"))
 
+# 3. Rinomina i layer con gli anni corretti
+names(ndvi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
+
 # Ridgeline plot
-im.ridgeline(ndvi,
-             names = names(ndvi),
-             ylab = "Anno",
-             xlab = "NDVI",
-             main = "Distribuzione NDVI (2019–2025)")
+im.ridgeline(ndvi, scale=1, palette="mako")
