@@ -152,6 +152,34 @@ dev.off()
 
 # Confronto percentuali suolo arido / vegetazione nella serie temporale 2019 - 2025
 
+
+###################
+> # Dati
+anno <- rep(c("2019", "2020", "2021", "2022", "2023", "2024", "2025"), each = 3)
+classe <- rep(c("Vegetazione emersa", "Aree palustri", "Suolo arido"), times = 7)
+valori <- c(86.45, 7.90, 1.40, 87.51, 5.05, 3.71, 90.41, 3.36, 2.86, 34.62, 0.00, 62.31, 51.18, 0.00, 45.89, 89.46, 5.25, 1.89, 72.51, 6.03, 18.47)
+copertura <- data.frame(anno, classe, valori)
+ 
+# Aggiungi una colonna gruppo
+copertura$gruppo <- ifelse(copertura$classe == "Suolo arido", "Suolo arido", "Vegetazione")
+
+# Crea un asse fittizio con posizione personalizzata per barre affiancate
+copertura$posizione <- as.numeric(as.factor(copertura$anno)) + ifelse(copertura$gruppo == "Vegetazione", -0.15, 0.15)
+
+# Plot
+lc_barplot = ggplot(copertura, aes(x = posizione, y = valori, fill = classe)) + geom_bar(data = filter(copertura, gruppo == "Vegetazione"), stat = "identity", position = "stack", width = 0.3) +
+    geom_bar(data = filter(copertura, gruppo == "Suolo arido"), stat = "identity", width = 0.3) +
+    scale_x_continuous(breaks = 1:7, labels = unique(copertura$anno)) +
+    scale_fill_manual(values = c("Vegetazione emersa" = "seagreen3","Aree palustri" = "deepskyblue3","Suolo arido" = "sienna3"),breaks = c("Suolo arido", "Aree palustri", "Vegetazione emersa")) +
+    labs(x = "Anno", y = "Copertura %", fill = NULL) +
+    ylim(0, 100) + theme_minimal(base_size = 13)
+lc_barplot
+
+# esportare il grafico
+ggsave("lc_barplot.jpg", plot = lc_barplot,width = 8, height = 5, dpi = 300)
+
+#######################
+
 # creazione dataframe "lungo" per realizzare un grafico a barre raggruppate, le prime 7 percentuali si riferiscono al suolo arido, le ultime 7 alla vegetazione
 anno = rep(c("2019", "2020", "2021", "2022", "2023", "2024", "2025"), times = 2)
 classe = c(rep("Suolo arido", 7),rep("Vegetazione", 7))
