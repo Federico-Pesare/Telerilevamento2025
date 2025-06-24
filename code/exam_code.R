@@ -239,14 +239,21 @@ write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", 
 
 # RIDGELINE PLOTS
 
+#NBR
+
 # Imposta la cartella dove sono i raster
-setwd("C:/Users/feder/Desktop/indici/NDVI") 
-
+setwd("C:/Users/feder/Desktop/indici/NBR") 
+ 
 # Importa tutti i raster NDVI in un'unica riga
-ndvi <- rast(list.files(pattern = "NDVI\\d{2}\\.tif$"))
-
+nbr <- rast(list.files(pattern = "NBR\\d{2}\\.tif$"))
+ 
 # 3. Rinomina i layer con gli anni corretti
-names(ndvi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
-
+names(nbr) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
+ 
 # Ridgeline plot
-im.ridgeline(ndvi, scale=1, palette="mako")
+Rnbr=im.ridgeline(ndvi, scale=1, palette="rocket")
+Rnbr + labs(x = "NBR", y = "anno") + theme_minimal()
+
+# salvataggio
+ggsave("nbr_ridgeline.png", Rnbr, width = 8, height = 5, dpi = 300)
+
