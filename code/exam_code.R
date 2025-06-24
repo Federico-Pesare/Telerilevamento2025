@@ -208,7 +208,7 @@ path <- file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff"
                                              
 # Cartella di output per raster indici
 out_dir <- file.path("C:/Users/feder/Desktop", "indici", as.character(anno))
-dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(out_dir, recursive = TRUE)
     
 # Salvataggio raster indici
   writeRaster(ndvi, file.path(out_dir, "NDVI.tif"), overwrite = TRUE)
@@ -217,6 +217,7 @@ dir.create(out_dir, recursive = TRUE, showWarnings = FALSE)
   
   cat("✓ Indici salvati in:", out_dir, "\n")
 }
+
 tab.indici
 
 # esporto la tabella degli indici
