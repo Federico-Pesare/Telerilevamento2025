@@ -3,7 +3,7 @@ library(terra)
 library(imageRy)
 library(ggplot2)
 library(ggridges)
-library()
+library(dplyr)
 
 # 1. LAND-COVER CLASSIFICATION
 # importo immagini SCL (Sentinel-2 Scene Classification Layer) e ribaldo per visualizzarle correttamente: funzione flip()
