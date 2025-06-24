@@ -166,7 +166,7 @@ copertura$gruppo <- ifelse(copertura$classe == "Suolo arido", "Suolo arido", "Ve
 # Crea un asse fittizio con posizione personalizzata per barre affiancate
 copertura$posizione <- as.numeric(as.factor(copertura$anno)) + ifelse(copertura$gruppo == "Vegetazione", -0.15, 0.15)
 
-# Plot
+# Plot, aestethics con x posizione per la sequenza ordinata degli anni
 lc_barplot = ggplot(copertura, aes(x = posizione, y = valori, fill = classe)) + geom_bar(data = filter(copertura, gruppo == "Vegetazione"), stat = "identity", position = "stack", width = 0.3) +
     geom_bar(data = filter(copertura, gruppo == "Suolo arido"), stat = "identity", width = 0.3) +
     scale_x_continuous(breaks = 1:7, labels = unique(copertura$anno)) +
