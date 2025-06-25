@@ -386,17 +386,16 @@ perc_high
 
 
 # VEGETAZIONE RESIDUA
-
 veg_residua = (ndvi[[4]] > 0.4) & (ndmi[[4]] > 0) & (dnbr < 0.1)
 pixel_vegres = global(veg_residua, fun = "sum", na.rm = TRUE)
 perc_vegres = (pixel_vegres / pixel_tot) * 100
 perc_vegres
+# 6.975656
 
+# VEGETAZIONE DISTRUTTA
+veg_distrutta = (ndvi[[3]] > 0.4) & (ndmi[[3]] > 0) & (dnbr > 0.1)
+pixel_vegdis = global(veg_distrutta, fun = "sum", na.rm = TRUE)
+perc_vegdis = (pixel_vegdis / pixel_tot) * 100
+perc_vegdis
+# 77.0699
 
-# Visualizza
-plot(dnbr, 
-     col = c("gray80", "khaki", "orange", "firebrick", "black"), 
-     breaks = c(-0.1, 0.1, 0.27, 0.44, 0.66, 1), 
-     main = "Incendio 2022", 
-     axes = FALSE, 
-     legend = TRUE)
