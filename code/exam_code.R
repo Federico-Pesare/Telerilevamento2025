@@ -363,7 +363,7 @@ burned_low <- dnbr > 0.1 & dnbr <= 0.27
 pixel_low <- global(burned_low, fun = "sum", na.rm = TRUE)
 
 # Numero totale di pixel validi (non NA)
-pixel_tot <- global(!is.na(dnbr), fun = "sum")
+pixel_tot <- global(!is.na(dnbr), fun = "sum", na.rm = TRUE)
 
 # Percentuale burned low
 perc_low <- (pixel_low / pixel_tot) * 100
