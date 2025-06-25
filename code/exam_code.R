@@ -1,9 +1,11 @@
 # pacchetti impiegati per condurre l'analisi
 library(terra)
 library(imageRy)
-library(ggplot2)
-library(ggridges)
+library(ggplot2)  # grafici
+library(ggridges)  # ridgeline plots
 library(dplyr)
+library(patchwork)  # grafici affiancati
+library(RStoolbox)  # FORSE, per sd
 
 # 1. LAND-COVER CLASSIFICATION
 # importo immagini SCL (Sentinel-2 Scene Classification Layer) e ribaldo per visualizzarle correttamente: funzione flip()
