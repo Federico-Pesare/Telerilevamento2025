@@ -345,7 +345,38 @@ ggsave("Line_Plot.png", line_plot)
 
 # SD NDMI. valutazione variabilità spaziale (stabilità ecosistemica)
 
+# 2019
+ndmi19 = rast("C:/Users/feder/Desktop/indici/NDMI/NDMI19.tif")
+plot(ndmi19, col=mako(100))
+
+# FOCAL function
+sd_ndmi19 = focal(ndmi19, w=c(3,3), fun=sd)
+plot(sd_ndmi19)
+
+#2024
+ndmi24 = rast("C:/Users/feder/Desktop/indici/NDMI/NDMI24.tif")
+plot(ndmi24, col=viridis(100))
+
+sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd)
+plot(sd_ndmi24)
 
 
-delta_sd <- sd_2024 - sd_2019
-plot(delta_sd, main = "Δ SD NDMI (2024 - 2019)")
+delta_sd <- sd_ndmi24 - sd_ndmi19
+plot(delta_sd, col=viridis(8))
+
+png("C:/Users/feder/Desktop/delta_sd_ndmi_2024_2019.png")
+plot(delta_sd, col=viridis(8))
+dev.off()
+
+# percentuale area con incremento disomogeneità (incremento sd di ndwi dal 2019)
+
+# Totale pixel validi nel raster (escludendo NA)
+npixel_tot = sum(!is.na(values(delta_sd)))
+
+# Pixel con aumento significativo
+npixel_0.05 = sum(values(delta_sd > 0.05), na.rm = TRUE)
+
+# Calcolo percentuale
+aree_disomogenee = npixel_0.05 / npixel_tot * 100
+aree_disomogenee
+# 
