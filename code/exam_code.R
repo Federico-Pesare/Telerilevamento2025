@@ -251,7 +251,7 @@ nbr <- rast(list.files(pattern = "NBR\\d{2}\\.tif$"))
 names(nbr) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot, forzare lo sfondo bianco per la palette usata (rocket)
-Rnbr = im.ridgeline(ndvi, scale=1, palette="rocket")
+Rnbr = im.ridgeline(nbr, scale=1, palette="rocket")
 Rnbr = Rnbr + labs(x = "NBR", y = "anno") + theme_minimal()  + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 
 # salvataggio
