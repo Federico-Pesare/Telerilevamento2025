@@ -316,7 +316,7 @@ library(patchwork)
 # Rimuovo l'etichetta asse Y da NDMI
 Rndmi_mod <- Rndmi + theme(axis.title.y = element_blank())
 
-# Composizione pulita
+# Visualizzazione grafici affiancati
 NBR_NDMI = Rnbr + Rndmi_mod
 
 # Salva
