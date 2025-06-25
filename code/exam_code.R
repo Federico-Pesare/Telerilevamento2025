@@ -291,7 +291,7 @@ ndmi <- rast(list.files(pattern = "NDMI\\d{2}\\.tif$"))
 names(ndmi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot
-Rndmi = im.ridgeline(ndmi, scale=1, palette="viridis")
+Rndmi = im.ridgeline(ndmi, scale=1, palette="mako")
 Rndmi = Rndmi + labs(x = "NDMI", y = "anno") + theme_minimal()
 Rndmi
 
