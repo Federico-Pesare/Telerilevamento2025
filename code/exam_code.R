@@ -272,7 +272,7 @@ names(ndvi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot
 Rndvi = im.ridgeline(ndvi, scale=1, palette="viridis")
-Rndvi = Rndvi + labs(x = "NDVI", y = "anno") + theme_minimal()
+Rndvi = Rndvi + labs(x = "NDVI", y = "anno") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rndvi
 
 # salvataggio
@@ -292,7 +292,7 @@ names(ndmi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot
 Rndmi = im.ridgeline(ndmi, scale=1, palette="mako")
-Rndmi = Rndmi + labs(x = "NDMI", y = "anno") + theme_minimal()
+Rndmi = Rndmi + labs(x = "NDMI", y = "anno") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rndmi
 
 # salvataggio
