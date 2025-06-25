@@ -251,12 +251,12 @@ nbr <- rast(list.files(pattern = "NBR\\d{2}\\.tif$"))
 names(nbr) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot, forzare lo sfondo bianco per la palette usata (rocket)
-Rnbr = im.ridgeline(nbr, scale=1, palette="rocket")
+Rnbr = im.ridgeline(nbr, scale=0.9, palette="rocket")
 Rnbr = Rnbr + labs(x = "NBR", y = "anno") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rnbr
 
 # salvataggio
-ggsave("nbr_ridgeline.png", Rnbr, width = 8, height = 5, dpi = 300)
+ggsave("nbr_ridgeline.png", Rnbr, width = 8, height = 6, dpi = 300)
 
 
 #NDVI
@@ -271,12 +271,12 @@ ndvi <- rast(list.files(pattern = "NDVI\\d{2}\\.tif$"))
 names(ndvi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot
-Rndvi = im.ridgeline(ndvi, scale=1, palette="viridis")
+Rndvi = im.ridgeline(ndvi, scale=0.9, palette="viridis")
 Rndvi = Rndvi + labs(x = "NDVI", y = "anno") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rndvi
 
 # salvataggio
-ggsave("ndvi_ridgeline.png", Rndvi, width = 8, height = 5, dpi = 300)
+ggsave("ndvi_ridgeline.png", Rndvi, width = 8, height = 6, dpi = 300)
 
 
 #NDMI
@@ -291,9 +291,9 @@ ndmi <- rast(list.files(pattern = "NDMI\\d{2}\\.tif$"))
 names(ndmi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot
-Rndmi = im.ridgeline(ndmi, scale=1, palette="mako")
+Rndmi = im.ridgeline(ndmi, scale=0.9, palette="mako")
 Rndmi = Rndmi + labs(x = "NDMI", y = "anno") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rndmi
 
 # salvataggio
-ggsave("ndmi_ridgeline.png", Rndmi, width = 8, height = 5, dpi = 300)
+ggsave("ndmi_ridgeline.png", Rndmi, width = 8, height = 6, dpi = 300)
