@@ -341,3 +341,11 @@ line_plot
 
 # Salva
 ggsave("Line_Plot.png", line_plot)
+
+
+# SD NDMI. valutazione variabilità spaziale (stabilità ecosistemica)
+
+
+
+delta_sd <- sd_2024 - sd_2019
+plot(delta_sd, main = "Δ SD NDMI (2024 - 2019)")
