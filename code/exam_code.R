@@ -241,7 +241,27 @@ tab.indici
 write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", row.names = FALSE)
 
 
-# RIDGELINE PLOTS
+
+# LINE PLOT: andamento (medie) NBR - NDVI - NDMI nella sequenza temporale 2019 - 2015
+
+# creo i dati per il dataframe
+anno = rep(2019:2025, each = 3)
+indice = rep(c("NDVI", "NDMI", "NBR"), times = 7)
+valore <- c(0.648,  0.190,  0.441, 0.619,  0.117,  0.372, 0.646,  0.160,  0.407, 0.361, -0.174, -0.002, 0.469, -0.057,  0.145, 0.665,  0.165,  0.423, 0.533, -0.014,  0.237)
+
+medie <- data.frame(Anno = anno, Indice = indice, Valore = valore)
+ 
+# Visualizza il line plot
+line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line(size = 1.2) + geom_point(size = 1.4) + labs(x = "anni", y = "valore medio", color=NULL) + scale_x_continuous(breaks = 2019:2025) + 
+  scale_color_manual(values = c( "NDVI" = "forestgreen", "NDMI" = "cornflowerblue", "NBR"  = "firebrick")) + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
+line_plot
+
+# Salva
+ggsave("Line_Plot.png", line_plot)
+
+
+
+# RIDGELINE PLOTS: analisi della distribuzione degli indici
 
 #NBR
 
@@ -327,22 +347,7 @@ ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
 
 
 
-# LINE PLOT: medie NBR - NDVI - NDMI nella sequenza temporale 2019 - 2015
 
-# creo i dati per il dataframe
-anno = rep(2019:2025, each = 3)
-indice = rep(c("NDVI", "NDMI", "NBR"), times = 7)
-valore <- c(0.648,  0.190,  0.441, 0.619,  0.117,  0.372, 0.646,  0.160,  0.407, 0.361, -0.174, -0.002, 0.469, -0.057,  0.145, 0.665,  0.165,  0.423, 0.533, -0.014,  0.237)
-
-medie <- data.frame(Anno = anno, Indice = indice, Valore = valore)
- 
-# Visualizza il line plot
-line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line(size = 1.2) + geom_point(size = 1.4) + labs(x = "anni", y = "valore medio", color=NULL) + scale_x_continuous(breaks = 2019:2025) + 
-  scale_color_manual(values = c( "NDVI" = "forestgreen", "NDMI" = "cornflowerblue", "NBR"  = "firebrick")) + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
-line_plot
-
-# Salva
-ggsave("Line_Plot.png", line_plot)
 
 
 
