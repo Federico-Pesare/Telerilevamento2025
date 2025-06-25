@@ -347,7 +347,7 @@ ggsave("Line_Plot.png", line_plot)
 
 # 2019
 ndmi19 = rast("C:/Users/feder/Desktop/indici/NDMI/NDMI19.tif")
-plot(ndmi19, col=mako(100))
+plot(ndmi19, col=viridis(100))
 
 # FOCAL function
 sd_ndmi19 = focal(ndmi19, w=c(3,3), fun=sd)
