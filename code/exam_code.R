@@ -360,7 +360,7 @@ plot(ndmi24, col=viridis(100))
 sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd)
 plot(sd_ndmi24)
 
-
+# sd_NDMI2024 - sd_NDMI2019
 delta_sd <- sd_ndmi24 - sd_ndmi19
 plot(delta_sd, col=viridis(8))
 
