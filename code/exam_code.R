@@ -180,7 +180,9 @@ lc_barplot
 # esportare il grafico
 ggsave("lc_barplot.jpg", plot = lc_barplot,width = 8, height = 5, dpi = 300)
 
-
+# LC INCENDIO
+incendio22=rast("C:/Users/feder/Desktop/IBERA'/2022/2022SWIR.jpg")
+incendio22
 
 # INDICI SPETTRALI
 
