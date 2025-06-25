@@ -254,7 +254,7 @@ names(nbr) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot, forzare lo sfondo bianco per la palette usata (rocket)
 Rnbr = im.ridgeline(nbr, scale=0.9, palette="rocket")
-Rnbr = Rnbr + labs(x = "NBR", y = "anno") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
+Rnbr = Rnbr + labs(x = "NBR", y = "anni") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rnbr
 
 # salvataggio
@@ -274,7 +274,7 @@ names(ndvi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot
 Rndvi = im.ridgeline(ndvi, scale=0.9, palette="viridis")
-Rndvi = Rndvi + labs(x = "NDVI", y = "anno") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
+Rndvi = Rndvi + labs(x = "NDVI", y = "anni") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rndvi
 
 # salvataggio
@@ -294,8 +294,21 @@ names(ndmi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
  
 # Ridgeline plot
 Rndmi = im.ridgeline(ndmi, scale=0.9, palette="mako")
-Rndmi = Rndmi + labs(x = "NDMI", y = "anno") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
+Rndmi = Rndmi + labs(x = "NDMI", y = "anni") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rndmi
 
 # salvataggio
 ggsave("ndmi_ridgeline.png", Rndmi, width = 8, height = 6, dpi = 300)
+
+
+# CONFRONTO grafici NBR - NDMI
+library(patchwork)
+
+# Rimuovo l'etichetta asse Y solo da NDMI
+Rndmi_mod <- Rndmi + theme(axis.title.y = element_blank())
+
+# Composizione pulita
+final_plot <- Rnbr + Rndmi_mod
+
+# Salva
+ggsave("nbr_ndmi_clean.png", final_plot, width = 12, height = 6, dpi = 300)
