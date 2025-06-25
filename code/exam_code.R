@@ -244,7 +244,7 @@ write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", 
 # Imposta la cartella dove sono i raster
 setwd("C:/Users/feder/Desktop/indici/NBR") 
  
-# Importa tutti i raster NDVI in un'unica riga
+# Importa tutti i raster NBR in un'unica riga
 nbr <- rast(list.files(pattern = "NBR\\d{2}\\.tif$"))
  
 # 3. Rinomina i layer con gli anni corretti
