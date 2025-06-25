@@ -304,11 +304,11 @@ ggsave("ndmi_ridgeline.png", Rndmi, width = 8, height = 6, dpi = 300)
 # CONFRONTO grafici NBR - NDMI
 library(patchwork)
 
-# Rimuovo l'etichetta asse Y solo da NDMI
+# Rimuovo l'etichetta asse Y da NDMI
 Rndmi_mod <- Rndmi + theme(axis.title.y = element_blank())
 
 # Composizione pulita
-final_plot <- Rnbr + Rndmi_mod
+NBR_NDMI = Rnbr + Rndmi_mod
 
 # Salva
-ggsave("nbr_ndmi_clean.png", final_plot, width = 12, height = 6, dpi = 300)
+ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
