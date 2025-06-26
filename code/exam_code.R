@@ -242,3 +242,7 @@ perc_vegres
 # 11 %
 
 
+
+# VARIAZIONE DELL'ETEROGENEITA' LOCALE FRA 2019 E 2024 A NORD-OVEST DEL PARQUE NACIONAL IBERA' 
+calcolo sd su ndmi ed ndvi 
+
