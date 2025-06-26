@@ -217,21 +217,21 @@ pixel_tot <- global(!is.na(dnbr), fun = "sum", na.rm = TRUE)
 
 perc_low <- (pixel_low / pixel_tot) * 100
 perc_low
-# 29.84596
+# 30 %
 
 # % AREE AD IMPATTO MODERATO
 i_med = dnbr > 0.27 & dnbr <= 0.44
 pixel_med = global(i_med, fun = "sum", na.rm = TRUE)
 perc_med = (pixel_med / pixel_tot) * 100
 perc_med
-# 18.84286
+# 19 %
 
 # % AREE AD IMPATTO ELEVATO
 i_high = dnbr > 0.44
 pixel_high = global(i_high, fun = "sum", na.rm = TRUE)
 perc_high = (pixel_high / pixel_tot) * 100
 perc_high
-# 23.96573
+# 24 %
 
 # VEGETAZIONE DISTRUTTA %
 veg_dis = (ndvi.dic21 > 0.3) & (ndmi.dic21 > 0) & (dnbr > 0.1)
