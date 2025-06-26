@@ -214,9 +214,9 @@ perc_low
 # 
 
 # IMPATTO MODERATO
-i_med = dnbr > 0.24 & dnbr <= 0.44
+i_med = dnbr > 0.27 & dnbr <= 0.44
 pixel_med = global(i_med, fun = "sum", na.rm = TRUE)
-perc_med = (pixel_med / pixel_tot) / * 100
+perc_med = (pixel_med / pixel_tot) * 100
 perc_med
 #
 
