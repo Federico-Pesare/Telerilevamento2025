@@ -198,7 +198,7 @@ nbr.dic21  <- (nir - swir2) / (nir + swir2)
 nbr.feb22 = nbr[[4]]
 
 # PERC AREA INCENDIATA. Basata sul delta NBR: valori > 0.1 indicano danno da incendio
-dnbr = nbr.dic21 - nbr.feb21
+dnbr = nbr.dic21 - nbr.feb22
 
 # IMPATTO LIEVE
 i_low = dnbr > 0.1 & dnbr <= 0.27
