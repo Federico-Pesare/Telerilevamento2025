@@ -205,7 +205,7 @@ ndmi.feb22 = ndmi[[4]]
 # PERC AREA INCENDIATA. Basata sul delta NBR: valori > 0.1 indicano danno da incendio
 dnbr = nbr.dic21 - nbr.feb22
 
-# IMPATTO LIEVE
+# % AREE AD IMPATTO LIEVE
 i_low = dnbr > 0.1 & dnbr <= 0.27
 
 #pixel bruciati
@@ -218,28 +218,30 @@ perc_low <- (pixel_low / pixel_tot) * 100
 perc_low
 # 29.84596
 
-# IMPATTO MODERATO
+# % AREE AD IMPATTO MODERATO
 i_med = dnbr > 0.27 & dnbr <= 0.44
 pixel_med = global(i_med, fun = "sum", na.rm = TRUE)
 perc_med = (pixel_med / pixel_tot) * 100
 perc_med
 # 18.84286
 
-# IMPATTO ELEVATO
+# % AREE AD IMPATTO ELEVATO
 i_high = dnbr > 0.44
 pixel_high = global(i_high, fun = "sum", na.rm = TRUE)
 perc_high = (pixel_high / pixel_tot) * 100
 perc_high
 # 23.96573
 
-# PERC VEGETAZIONE DISTRUTTA
-veg_dis = (ndvi.dic21 > 0.4) & (ndmi.dic21 > 0) & (dnbr > 0.1)
+# VEGETAZIONE DISTRUTTA %
+veg_dis = (ndvi.dic21 > 0.3) & (ndmi.dic21 > 0) & (dnbr > 0.1)
 pixel_vegdis = global(veg_dis, fun = "sum", na.rm = TRUE)
 perc_vegdis = (pixel_vegdis / pixel_tot) * 100
 perc_vegdis
+# 42 %
 
-# PERC VEGETAZIONE RESIDUA
-veg_res = (ndvi.feb22 > 0.4) & (ndmi.feb22 > 0) & (dnbr < 0.1)
+# VEGETAZIONE RESIDUA %
+veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
 pixel_vegres = global(veg_res, fun = "sum", na.rm = TRUE)
 perc_vegres = (pixel_vegres / pixel_tot) * 100
 perc_vegres
+# 11 %
