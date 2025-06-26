@@ -186,6 +186,7 @@ ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
 
 # INCENDIO (DIC 2021 - FEB 2022)
 
+# Calcolo indici per le condizioni pre incendio
 path_dic21 <- "C:/Users/feder/Desktop/29dic2021/geoTiff"
 
 red   <- rast(file.path(path_dic21, "B04.tiff"))
@@ -197,7 +198,7 @@ ndvi.dic21 <- (nir - red) / (nir + red)
 ndmi.dic21 <- (nir - swir1) / (nir + swir1)
 nbr.dic21  <- (nir - swir2) / (nir + swir2)
 
-# assegno la dicitura "nbr/ndvi/ndmi.feb22" ai raster precedentemente importati negli stack per la realizzazione dei ridgeline plots degli indici
+# assegno la dicitura "nbr/ndvi/ndmi.feb22" ai raster di feb2022 precedentemente importati negli stack per la realizzazione dei ridgeline plots degli indici
 nbr.feb22 = nbr[[4]]
 ndvi.feb22 = ndvi[[4]]
 ndmi.feb22 = ndmi[[4]]
@@ -245,3 +246,37 @@ pixel_vegres = global(veg_res, fun = "sum", na.rm = TRUE)
 perc_vegres = (pixel_vegres / pixel_tot) * 100
 perc_vegres
 # 11 %
+
+
+
+
+# ANALISI DISTURBO SECONDARIO (?)
+
+#1. bruciati nel 2022
+burnt_22 <- dnbr > 0.1
+
+# 2. Pixel che hanno recuperato nel 2024
+ndvi.feb24 = ndvi[[6]]
+recover_24 <- ndvi.feb24 > 0.3
+
+# 3. Nessun nuovo incendio tra dic24 e feb25 (delta NBR ≈ 0 o negativo)
+#  Calcolo indici per le condizioni pre incendio
+path_dic24 <- "C:/Users/feder/Desktop/23dic2024/geoTiff"
+
+nir   <- rast(file.path(path_dic24, "B08.tiff"))
+swir2 <- rast(file.path(path_dic24, "B12.tiff"))
+
+nbr.dic24  <- (nir - swir2) / (nir + swir2)
+
+nbr.feb25 = nbr[[7]]
+notburnt_25 <- (nbr.dic24 - nbr.feb25) < 0.1
+
+# 4. Pixel collassati nel 2025
+ndvi.feb25 = ndvi[[7]]
+disturbed_25 <- ndvi.feb25 < 0.2
+
+# 5. Combinazione logica: disturbo secondario ritardato
+sec_disturb <- burnt_22 & recover_24 & notburnt_25 & disturbed_25
+pixel_sc = global(sec_disturb, fun = "sum", na.rm = TRUE)
+perc_sc = (pixel_sc / pixel_tot) * 100
+perc_sc
