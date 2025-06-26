@@ -243,10 +243,41 @@ swir1 <- rast(file.path(path_dicembre, "B11.tiff"))
 swir2 <- rast(file.path(path_dicembre, "B12.tiff"))
 
 
-ndvi <- (nir - red) / (nir + red)
-ndmi <- (nir - swir1) / (nir + swir1)
-nbr  <- (nir - swir2) / (nir + swir2)
+ndvi.dic21 <- (nir - red) / (nir + red)
+ndmi.dic21 <- (nir - swir1) / (nir + swir1)
+nbr.dic21  <- (nir - swir2) / (nir + swir2)
 
-# PERC INCENDIO
+nbr.feb22 = nbr[[4]]
+
+# PERC AREA INCENDIATA. Basata sul delta NBR: valori > 0.1 indicano danno da incendio
+dnbr = nbr.dic21 - nbr.feb21
+
+# IMPATTO LIEVE
+i_low = dnbr > 0.1 & dnbr <= 0.27
+
+#pixel bruciati
+pixel_low <- global(i_low, fun = "sum", na.rm = TRUE)
+
+# Numero totale di pixel validi (non NA)
+pixel_tot <- global(!is.na(dnbr), fun = "sum", na.rm = TRUE)
+
+perc_low <- (pixel_low / pixel_tot) * 100
+perc_low
+# 
+
+# IMPATTO MODERATO
+i_med = dnbr > 0.24 & dnbr <= 0.44
+pixel_med = global(i_med, fun = "sum", na.rm = TRUE)
+perc_med = (pixel_med / pixel_tot) / * 100
+perc_med
+#
+
+# IMPATTO ELEVATO
+i_high = dnbr > 0.44
+pixel_high = global(i_high, fun = "sum", na.rm = TRUE)
+perc_high = (pixel_high / pixel_tot) * 100
+perc_high
+#
+
 # PERC VEGETAZIONE DISTRUTTA
 # PERC VEGETAZIONE RESIDUA
