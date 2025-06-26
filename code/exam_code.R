@@ -248,35 +248,3 @@ perc_vegres
 # 11 %
 
 
-
-
-# ANALISI DISTURBO SECONDARIO (?)
-
-#1. bruciati nel 2022
-burnt_22 <- dnbr > 0.1
-
-# 2. Pixel che hanno recuperato nel 2024
-ndvi.feb24 = ndvi[[6]]
-recover_24 <- ndvi.feb24 > 0.3
-
-# 3. Nessun nuovo incendio tra dic24 e feb25 (delta NBR ≈ 0 o negativo)
-#  Calcolo indici per le condizioni pre incendio
-path_dic24 <- "C:/Users/feder/Desktop/23dic2024/geoTiff"
-
-B08  <- rast(file.path(path_dic24, "B08.tiff"))
-B12 <- rast(file.path(path_dic24, "B12.tiff"))
-
-nbr.dic24  <- (B08 - B12) / (B08 + B12)
-
-nbr.feb25 = nbr[[7]]
-notburnt_25 <- (nbr.dic24 - nbr.feb25) < 0.1
-
-# 4. Pixel collassati nel 2025
-ndvi.feb25 = ndvi[[7]]
-disturbed_25 <- ndvi.feb25 < 0.2
-
-# 5. Combinazione logica: disturbo secondario ritardato
-sec_disturb <- burnt_22 & recover_24 & notburnt_25 & disturbed_25
-pixel_sc = global(sec_disturb, fun = "sum", na.rm = TRUE)
-perc_sc = (pixel_sc / pixel_tot) * 100
-perc_sc
