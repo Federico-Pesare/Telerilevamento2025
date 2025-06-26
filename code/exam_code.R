@@ -263,10 +263,10 @@ recover_24 <- ndvi.feb24 > 0.3
 #  Calcolo indici per le condizioni pre incendio
 path_dic24 <- "C:/Users/feder/Desktop/23dic2024/geoTiff"
 
-nir   <- rast(file.path(path_dic24, "B08.tiff"))
-swir2 <- rast(file.path(path_dic24, "B12.tiff"))
+B08  <- rast(file.path(path_dic24, "B08.tiff"))
+B12 <- rast(file.path(path_dic24, "B12.tiff"))
 
-nbr.dic24  <- (nir - swir2) / (nir + swir2)
+nbr.dic24  <- (B08 - B12) / (B08 + B12)
 
 nbr.feb25 = nbr[[7]]
 notburnt_25 <- (nbr.dic24 - nbr.feb25) < 0.1
