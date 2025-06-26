@@ -28,7 +28,6 @@ path <- file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff"
 
 
 # Carica le bande
-  blue  <- rast(file.path(path, "B02.tiff"))
   red   <- rast(file.path(path, "B04.tiff"))
   nir   <- rast(file.path(path, "B08.tiff"))
   swir1 <- rast(file.path(path, "B11.tiff"))
@@ -238,7 +237,6 @@ perc_vegdis
 
 path_dicembre <- "C:/Users/feder/Desktop/IBERA'/2021/dicembre/geoTiff"
 
-blue  <- rast(file.path(path_dicembre, "B02.tiff"))
 red   <- rast(file.path(path_dicembre, "B04.tiff"))
 nir   <- rast(file.path(path_dicembre, "B08.tiff"))
 swir1 <- rast(file.path(path_dicembre, "B11.tiff"))
@@ -248,3 +246,7 @@ swir2 <- rast(file.path(path_dicembre, "B12.tiff"))
 ndvi <- (nir - red) / (nir + red)
 ndmi <- (nir - swir1) / (nir + swir1)
 nbr  <- (nir - swir2) / (nir + swir2)
+
+# PERC INCENDIO
+# PERC VEGETAZIONE DISTRUTTA
+# PERC VEGETAZIONE RESIDUA
