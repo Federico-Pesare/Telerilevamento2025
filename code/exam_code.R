@@ -65,7 +65,9 @@ tab.indici
 # esporto la tabella degli indici
 write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", row.names = FALSE)
 
-
+################
+rm(list=ls())
+###################
 
 # LINE PLOT: andamento (medie) NBR - NDVI - NDMI nella sequenza temporale 2019 - 2015
 
@@ -229,3 +231,20 @@ perc_vegdis = (pixel_vegdis / pixel_tot) * 100
 perc_vegdis
 # 77.0699
 
+
+
+
+# INCENDIO (DIC 2021 - FEB 2022)
+
+path_dicembre <- "C:/Users/feder/Desktop/IBERA'/2021/dicembre/geoTiff"
+
+blue  <- rast(file.path(path_dicembre, "B02.tiff"))
+red   <- rast(file.path(path_dicembre, "B04.tiff"))
+nir   <- rast(file.path(path_dicembre, "B08.tiff"))
+swir1 <- rast(file.path(path_dicembre, "B11.tiff"))
+swir2 <- rast(file.path(path_dicembre, "B12.tiff"))
+
+
+ndvi <- (nir - red) / (nir + red)
+ndmi <- (nir - swir1) / (nir + swir1)
+nbr  <- (nir - swir2) / (nir + swir2)
