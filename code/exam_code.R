@@ -233,12 +233,6 @@ perc_high = (pixel_high / pixel_tot) * 100
 perc_high
 # 24 %
 
-# VEGETAZIONE DISTRUTTA %
-veg_dis = (ndvi.dic21 > 0.3) & (ndmi.dic21 > 0) & (dnbr > 0.1)
-pixel_vegdis = global(veg_dis, fun = "sum", na.rm = TRUE)
-perc_vegdis = (pixel_vegdis / pixel_tot) * 100
-perc_vegdis
-# 42 %
 
 # VEGETAZIONE RESIDUA %
 veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
