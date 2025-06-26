@@ -197,9 +197,10 @@ ndvi.dic21 <- (nir - red) / (nir + red)
 ndmi.dic21 <- (nir - swir1) / (nir + swir1)
 nbr.dic21  <- (nir - swir2) / (nir + swir2)
 
-# assegno la dicitura "nbr.feb22" al raster precedentemente importato nello stack per la realizzazione del ridgeline NBR
+# assegno la dicitura "nbr/ndvi/ndmi.feb22" ai raster precedentemente importati negli stack per la realizzazione dei ridgeline plots degli indici
 nbr.feb22 = nbr[[4]]
-
+ndvi.feb22 = ndvi[[4]]
+ndmi.feb22 = ndmi[[4]]
 
 # PERC AREA INCENDIATA. Basata sul delta NBR: valori > 0.1 indicano danno da incendio
 dnbr = nbr.dic21 - nbr.feb22
@@ -215,30 +216,30 @@ pixel_tot <- global(!is.na(dnbr), fun = "sum", na.rm = TRUE)
 
 perc_low <- (pixel_low / pixel_tot) * 100
 perc_low
-# 
+# 29.84596
 
 # IMPATTO MODERATO
 i_med = dnbr > 0.27 & dnbr <= 0.44
 pixel_med = global(i_med, fun = "sum", na.rm = TRUE)
 perc_med = (pixel_med / pixel_tot) * 100
 perc_med
-#
+# 18.84286
 
 # IMPATTO ELEVATO
 i_high = dnbr > 0.44
 pixel_high = global(i_high, fun = "sum", na.rm = TRUE)
 perc_high = (pixel_high / pixel_tot) * 100
 perc_high
-#
+# 23.96573
 
 # PERC VEGETAZIONE DISTRUTTA
-veg_distrutta = (ndvi[[3]] > 0.4) & (ndmi[[3]] > 0) & (dnbr > 0.1)
-pixel_vegdis = global(veg_distrutta, fun = "sum", na.rm = TRUE)
+veg_dis = (ndvi.dic21 > 0.4) & (ndmi.dic21 > 0) & (dnbr > 0.1)
+pixel_vegdis = global(veg_dis, fun = "sum", na.rm = TRUE)
 perc_vegdis = (pixel_vegdis / pixel_tot) * 100
 perc_vegdis
 
 # PERC VEGETAZIONE RESIDUA
-veg_residua = (ndvi[[4]] > 0.4) & (ndmi[[4]] > 0) & (dnbr < 0.1)
-pixel_vegres = global(veg_residua, fun = "sum", na.rm = TRUE)
+veg_res = (ndvi.feb22 > 0.4) & (ndmi.feb22 > 0) & (dnbr < 0.1)
+pixel_vegres = global(veg_res, fun = "sum", na.rm = TRUE)
 perc_vegres = (pixel_vegres / pixel_tot) * 100
 perc_vegres
