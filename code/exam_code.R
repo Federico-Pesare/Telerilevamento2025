@@ -183,19 +183,20 @@ ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
 
 # INCENDIO (DIC 2021 - FEB 2022)
 
-path_dicembre <- "C:/Users/feder/Desktop/IBERA'/2021/dicembre/geoTiff"
+path_dic21 <- "C:/Users/feder/Desktop/29dic2021/geoTiff"
 
 red   <- rast(file.path(path_dicembre, "B04.tiff"))
 nir   <- rast(file.path(path_dicembre, "B08.tiff"))
 swir1 <- rast(file.path(path_dicembre, "B11.tiff"))
 swir2 <- rast(file.path(path_dicembre, "B12.tiff"))
 
-
 ndvi.dic21 <- (nir - red) / (nir + red)
 ndmi.dic21 <- (nir - swir1) / (nir + swir1)
 nbr.dic21  <- (nir - swir2) / (nir + swir2)
 
+# assegno la dicitura "nbr.feb22" al raster precedentemente importato nello stack per la realizzazione del ridgeline NBR
 nbr.feb22 = nbr[[4]]
+
 
 # PERC AREA INCENDIATA. Basata sul delta NBR: valori > 0.1 indicano danno da incendio
 dnbr = nbr.dic21 - nbr.feb22
