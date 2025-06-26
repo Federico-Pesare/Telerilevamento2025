@@ -178,58 +178,6 @@ ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
 
 
 
-# INCENDIO
-
-# sottraggo a nbr 2021, nbr 2022 (anno dell'incendio), valori > 0.1 indicano danno da incendio
-
-dnbr= nbr[[3]]-nbr[[4]]
-plot(dnbr)
-
-# percentuali aree per classe di severità Key & Benson (2006)
-
-# IMPATTO LIEVE 0.1 - 0.27
-burned_low <- dnbr > 0.1 & dnbr <= 0.27
-
-#pixel bruciati
-pixel_low <- global(burned_low, fun = "sum", na.rm = TRUE)
-
-# Numero totale di pixel validi (non NA)
-pixel_tot <- global(!is.na(dnbr), fun = "sum", na.rm = TRUE)
-
-# Percentuale burned low
-perc_low <- (pixel_low / pixel_tot) * 100
-perc_low
-# 18.90926
-
-# IMPATTO MODERATO 0.27 - 0.44
-burned_moderate = dnbr > 0.27 & dnbr <= 0.44
-pixel_moderate = global(burned_moderate, fun = "sum", na.rm = TRUE)
-perc_moderate = (pixel_moderate / pixel_tot) * 100
-perc_moderate
-# 21.02784
-
-# IMPATTO ELEVATO > 0.44
-burned_high = dnbr > 0.44
-pixel_high = global(burned_high, fun = "sum", na.rm = TRUE)
-perc_high = (pixel_high / pixel_tot) * 100
-perc_high
-# 46.16345
-
-
-# VEGETAZIONE RESIDUA
-veg_residua = (ndvi[[4]] > 0.4) & (ndmi[[4]] > 0) & (dnbr < 0.1)
-pixel_vegres = global(veg_residua, fun = "sum", na.rm = TRUE)
-perc_vegres = (pixel_vegres / pixel_tot) * 100
-perc_vegres
-# 6.975656
-
-# VEGETAZIONE DISTRUTTA
-veg_distrutta = (ndvi[[3]] > 0.4) & (ndmi[[3]] > 0) & (dnbr > 0.1)
-pixel_vegdis = global(veg_distrutta, fun = "sum", na.rm = TRUE)
-perc_vegdis = (pixel_vegdis / pixel_tot) * 100
-perc_vegdis
-# 77.0699
-
 
 
 
@@ -280,4 +228,13 @@ perc_high
 #
 
 # PERC VEGETAZIONE DISTRUTTA
+veg_distrutta = (ndvi[[3]] > 0.4) & (ndmi[[3]] > 0) & (dnbr > 0.1)
+pixel_vegdis = global(veg_distrutta, fun = "sum", na.rm = TRUE)
+perc_vegdis = (pixel_vegdis / pixel_tot) * 100
+perc_vegdis
+
 # PERC VEGETAZIONE RESIDUA
+veg_residua = (ndvi[[4]] > 0.4) & (ndmi[[4]] > 0) & (dnbr < 0.1)
+pixel_vegres = global(veg_residua, fun = "sum", na.rm = TRUE)
+perc_vegres = (pixel_vegres / pixel_tot) * 100
+perc_vegres
