@@ -89,27 +89,7 @@ ggsave("Line_Plot.png", line_plot)
 
 # RIDGELINE PLOTS: analisi della distribuzione degli indici
 
-#NBR
 
-# Imposta la cartella dove sono i raster
-setwd("C:/Users/feder/Desktop/indici/NBR") 
- 
-# Importa tutti i raster NBR in un'unica riga
-nbr <- rast(list.files(pattern = "NBR\\d{2}\\.tif$"))
- 
-# 3. Rinomina i layer con gli anni corretti
-names(nbr) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
-
-# rimuovo i valori=-1
-nbr[nbr == -1] <- NA
-
-# Ridgeline plot, forzare lo sfondo bianco per la palette usata (rocket)
-Rnbr = im.ridgeline(nbr, scale=0.9, palette="rocket")
-Rnbr = Rnbr + labs(x = "NBR", y = "anni") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
-Rnbr
-
-# salvataggio
-ggsave("nbr_ridgeline.png", Rnbr, width = 8, height = 6, dpi = 300)
 
 
 #NDVI
@@ -158,6 +138,29 @@ Rndmi
 ggsave("ndmi_ridgeline.png", Rndmi, width = 8, height = 6, dpi = 300)
 
 
+#NBR
+
+# Imposta la cartella dove sono i raster
+setwd("C:/Users/feder/Desktop/indici/NBR") 
+ 
+# Importa tutti i raster NBR in un'unica riga
+nbr <- rast(list.files(pattern = "NBR\\d{2}\\.tif$"))
+ 
+# 3. Rinomina i layer con gli anni corretti
+names(nbr) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
+
+# rimuovo i valori=-1
+nbr[nbr == -1] <- NA
+
+# Ridgeline plot, forzare lo sfondo bianco per la palette usata (rocket)
+Rnbr = im.ridgeline(nbr, scale=0.9, palette="rocket")
+Rnbr = Rnbr + labs(x = "NBR", y = "anni") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
+Rnbr
+
+# salvataggio
+ggsave("nbr_ridgeline.png", Rnbr, width = 8, height = 6, dpi = 300)
+
+
 
 # CONFRONTO grafici NBR - NDMI
 library(patchwork)
@@ -185,10 +188,10 @@ ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
 
 path_dic21 <- "C:/Users/feder/Desktop/29dic2021/geoTiff"
 
-red   <- rast(file.path(path_dicembre, "B04.tiff"))
-nir   <- rast(file.path(path_dicembre, "B08.tiff"))
-swir1 <- rast(file.path(path_dicembre, "B11.tiff"))
-swir2 <- rast(file.path(path_dicembre, "B12.tiff"))
+red   <- rast(file.path(path_dic21, "B04.tiff"))
+nir   <- rast(file.path(path_dic21, "B08.tiff"))
+swir1 <- rast(file.path(path_dic21, "B11.tiff"))
+swir2 <- rast(file.path(path_dic21, "B12.tiff"))
 
 ndvi.dic21 <- (nir - red) / (nir + red)
 ndmi.dic21 <- (nir - swir1) / (nir + swir1)
