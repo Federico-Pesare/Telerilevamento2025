@@ -19,7 +19,7 @@ anni <- c(2019, 2020, 2021, 2022, 2023, 2024, 2025)
 # Tabella vuota per visualizzare il valore della media di ogni indice per anno
 tab.indici <- data.frame(Anno = integer(), NDVI = numeric(), NDMI = numeric(), NBR = numeric())
 
-# loop
+# CICLO FOR per calcolo indici
 for (anno in anni) {
   cat("Indici spettrali febbraio", anno, "\n")
 
