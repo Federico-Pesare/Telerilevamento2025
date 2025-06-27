@@ -271,5 +271,25 @@ sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
 delta_sd_ndvi = sd_ndvi24 - sd_ndvi19
 delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
-# Mappa o histogramma della differenza
-plot(delta_sd_ndmi, main="Δ SD NDMI (2024 - 2019)", col=cividis(11))
+# Mappa
+plot(delta_sd_ndmi, main="Δ SD NDMI (2024 - 2019)", col=cividis(17))
+png("delta_sd_ndmi.png")
+plot(delta_sd_ndmi, main="Δ SD NDMI (2024 - 2019)", col=cividis(17))
+dev.off()
+
+
+%
+# Crea una maschera booleana: TRUE dove la SD > 1
+mask_sd_gt1 <- sd_ndmi24 > 1
+
+# Conta i pixel con SD > 1
+n_gt1 <- global(mask_sd_gt1, fun = "sum", na.rm = TRUE)
+
+# Conta tutti i pixel validi (non NA)
+n_total <- global(!is.na(sd_ndmi24), fun = "sum", na.rm = TRUE)
+
+# Calcola la percentuale
+perc_gt1 <- (n_gt1 / n_total) * 100
+
+# Mostra il risultato
+perc_gt1
