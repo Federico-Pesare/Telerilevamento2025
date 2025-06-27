@@ -262,10 +262,10 @@ ndmi19 = (nir19 - swir19) / (nir19 + swir19)
 ndmi24 = (nir24 - swir24) / (nir24 + swir24)
 
 # Calcola SD locale su finestra mobile (es. 3x3) su NDMI ed NDVI per 2019 e 2024 applicando una finestra 3x3
-sd_ndvi19 = focal(ndvi19, w=matrix(1,3,3), fun=sd, na.rm=TRUE)
-sd_ndvi24 = focal(ndvi24, w=matrix(1,3,3), fun=sd, na.rm=TRUE)
-sd_ndmi19 = focal(ndmi19, w=matrix(1,3,3), fun=sd, na.rm=TRUE)
-sd_ndmi24 = focal(ndmi24, w=matrix(1,3,3), fun=sd, na.rm=TRUE)
+sd_ndvi19 = focal(ndvi19, w=c(3,3), fun=sd, na.rm=TRUE)
+sd_ndvi24 = focal(ndvi24, w=c(3,3), fun=sd, na.rm=TRUE)
+sd_ndmi19 = focal(ndmi19, w=c(3,3), fun=sd, na.rm=TRUE)
+sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
 
 # Differenza SD
 delta_sd_ndvi = sd_ndvi24 - sd_ndvi19
