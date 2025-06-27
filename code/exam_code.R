@@ -278,18 +278,19 @@ plot(delta_sd_ndmi, main="Δ SD NDMI (2024 - 2019)", col=cividis(17))
 dev.off()
 
 
-%
-# Crea una maschera booleana: TRUE dove la SD > 1
-mask_sd_gt1 <- sd_ndmi24 > 1
+# PERCENTUALE AREA FRAMMENTATA
+# Crea una maschera booleana: TRUE dove il delta sd > 0.05
+area_fram = delta_sd_ndmi > 0.05
+pixel_fram <- global(area_fram, fun = "sum", na.rm = TRUE)
+pixel_tot <- global(!is.na(delta_sd_ndmi), fun = "sum", na.rm = TRUE)
+perc_fram <- (pixel_fram / pixel_tot) * 100
+perc_fram
+# 11 %
 
-# Conta i pixel con SD > 1
-n_gt1 <- global(mask_sd_gt1, fun = "sum", na.rm = TRUE)
 
-# Conta tutti i pixel validi (non NA)
-n_total <- global(!is.na(sd_ndmi24), fun = "sum", na.rm = TRUE)
-
-# Calcola la percentuale
-perc_gt1 <- (n_gt1 / n_total) * 100
-
-# Mostra il risultato
-perc_gt1
+# PERCENTUALE AREA OMOGENEIZZATA
+area_omog = delta_sd_ndmi < 0.05
+pixel_omog <- global(area_omog, fun = "sum", na.rm = TRUE)
+perc_omog <- (pixel_omog / pixel_tot) * 100
+perc_omog
+# 89 %
