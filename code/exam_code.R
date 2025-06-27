@@ -243,32 +243,25 @@ perc_vegres
 
 
 
-# VARIAZIONE DELL'ETEROGENEITA' LOCALE FRA 2019 E 2024 A NORD-OVEST DEL PARQUE NACIONAL IBERA' 
-# NDMI ed NDVI della porzione N-O di IBERA' nel 2019 e 2024
+# Δ ETEROGENEITA' LOCALE SU BASE NDMI FRA 2019 E 2024 A NORD-OVEST DEL PARQUE NACIONAL IBERA' 
+
 path19 = "C:/Users/feder/Desktop/Ibera_19/geoTiff"
 path24 = "C:/Users/feder/Desktop/Ibera_24/geoTiff"
 
-red19 = rast(file.path(path19, "B04.tiff"))
+# carico le bande necessarie per il calcolo NDMI 2019 e 2024
 nir19 = rast(file.path(path19, "B08.tiff"))
 swir19 = rast(file.path(path19, "B11.tiff"))
-
-red24 = rast(file.path(path24, "B04.tiff"))
 nir24 = rast(file.path(path24, "B08.tiff"))
 swir24 = rast(file.path(path24, "B11.tiff"))
 
-ndvi19 = (nir19 - red19) / (nir19 + red19)
-ndvi24 = (nir24 - red24) / (nir24 + red24)
 ndmi19 = (nir19 - swir19) / (nir19 + swir19)
 ndmi24 = (nir24 - swir24) / (nir24 + swir24)
 
-# Calcola SD locale su finestra mobile (es. 3x3) su NDMI ed NDVI per 2019 e 2024 applicando una finestra 3x3
-sd_ndvi19 = focal(ndvi19, w=c(3,3), fun=sd, na.rm=TRUE)
-sd_ndvi24 = focal(ndvi24, w=c(3,3), fun=sd, na.rm=TRUE)
+# SD locale su finestra mobile (es. 3x3) per 2019 e 2024 applicando una finestra 3x3
 sd_ndmi19 = focal(ndmi19, w=c(3,3), fun=sd, na.rm=TRUE)
 sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
 
-# Differenza SD
-delta_sd_ndvi = sd_ndvi24 - sd_ndvi19
+# Δ SD
 delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
 # Mappa
