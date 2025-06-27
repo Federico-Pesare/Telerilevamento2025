@@ -248,13 +248,13 @@ perc_vegres
 path19 = "C:/Users/feder/Desktop/Ibera_19/geoTiff"
 path24 = "C:/Users/feder/Desktop/Ibera_24/geoTiff"
 
-red19 = rast(path19, "B04.tiff")
-nir19 = rast(path19, "B08.tiff")
-swir19 = rast(path19, "B11.tiff")
+red19 = rast(file.path(path19, "B04.tiff"))
+nir19 = rast(file.path(path19, "B08.tiff"))
+swir19 = rast(file.path(path19, "B11.tiff"))
 
-red24 = rast(path24, "B04.tiff")
-nir24 = rast(path24, "B08.tiff")
-swir24 = rast(path24, "B11.tiff")
+red24 = rast(file.path(path24, "B04.tiff"))
+nir24 = rast(file.path(path24, "B08.tiff"))
+swir24 = rast(file.path(path24, "B11.tiff"))
 
 ndvi19 = (nir19 - red19) / (nir19 + red19)
 ndvi24 = (nir24 - red24) / (nir24 + red24)
