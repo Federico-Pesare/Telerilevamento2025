@@ -272,4 +272,4 @@ delta_sd_ndvi = sd_ndvi24 - sd_ndvi19
 delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
 # Mappa o histogramma della differenza
-plot(delta_sd, main="Variazione SD NDMI (2024 - 2019)", col=cividis(11))
+plot(delta_sd_ndmi, main="Variazione SD NDMI (2024 - 2019)", col=cividis(11))
