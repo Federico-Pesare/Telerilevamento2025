@@ -265,9 +265,9 @@ sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
 delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
 # Mappa
-plot(delta_sd_ndmi, main="Δ SD NDMI (2024 - 2019)", col=cividis(17))
+plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(17))
 png("delta_sd_ndmi.png")
-plot(delta_sd_ndmi, main="Δ SD NDMI (2024 - 2019)", col=cividis(17))
+plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(17))
 dev.off()
 
 
