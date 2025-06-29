@@ -1,6 +1,7 @@
 # pacchetti impiegati per condurre l'analisi
 library(terra)
 library(imageRy)
+library(viridis)
 library(ggplot2)  # grafici
 library(ggridges)  # ridgeline plots
 library(dplyr)
@@ -73,9 +74,9 @@ rm(list=ls())
 # creo i dati per il dataframe
 anno = rep(2019:2025, each = 3)
 indice = rep(c("NDVI", "NDMI", "NBR"), times = 7)
-valore <- c(0.648,  0.190,  0.441, 0.619,  0.117,  0.372, 0.646,  0.160,  0.407, 0.361, -0.174, -0.002, 0.469, -0.057,  0.145, 0.665,  0.165,  0.423, 0.533, -0.014,  0.237)
+valore = c(0.648,  0.190,  0.441, 0.619,  0.117,  0.372, 0.646,  0.160,  0.407, 0.361, -0.174, -0.002, 0.469, -0.057,  0.145, 0.665,  0.165,  0.423, 0.533, -0.014,  0.237)
 
-medie <- data.frame(Anno = anno, Indice = indice, Valore = valore)
+medie = data.frame(Anno = anno, Indice = indice, Valore = valore)
  
 # Visualizza il line plot
 line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line(size = 1.2) + geom_point(size = 1.4) + labs(x = "anni", y = "valore medio", color=NULL) + scale_x_continuous(breaks = 2019:2025) + 
@@ -98,13 +99,13 @@ ggsave("Line_Plot.png", line_plot)
 setwd("C:/Users/feder/Desktop/indici/NDVI") 
  
 # Importa tutti i raster NDVI in un'unica riga
-ndvi <- rast(list.files(pattern = "NDVI\\d{2}\\.tif$"))
+ndvi = rast(list.files(pattern = "NDVI\\d{2}\\.tif$"))
  
 # 3. Rinomina i layer con gli anni corretti
-names(ndvi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
+names(ndvi) = c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
 
 # rimuovo i valori=-1
-ndvi[ndvi == -1] <- NA
+ndvi[ndvi == -1] = NA
 
 # Ridgeline plot
 Rndvi = im.ridgeline(ndvi, scale=0.9, palette="viridis")
@@ -121,13 +122,13 @@ ggsave("ndvi_ridgeline.png", Rndvi, width = 8, height = 6, dpi = 300)
 setwd("C:/Users/feder/Desktop/indici/NDMI") 
  
 # Importa tutti i raster NDMI in un'unica riga
-ndmi <- rast(list.files(pattern = "NDMI\\d{2}\\.tif$"))
+ndmi = rast(list.files(pattern = "NDMI\\d{2}\\.tif$"))
  
 # 3. Rinomina i layer con gli anni corretti
-names(ndmi) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
+names(ndmi) = c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
 
 # rimuovo i valori=-1
-ndmi[ndmi == -1] <- NA
+ndmi[ndmi == -1] = NA
 
 # Ridgeline plot
 Rndmi = im.ridgeline(ndmi, scale=0.9, palette="mako")
@@ -144,13 +145,13 @@ ggsave("ndmi_ridgeline.png", Rndmi, width = 8, height = 6, dpi = 300)
 setwd("C:/Users/feder/Desktop/indici/NBR") 
  
 # Importa tutti i raster NBR in un'unica riga
-nbr <- rast(list.files(pattern = "NBR\\d{2}\\.tif$"))
+nbr = rast(list.files(pattern = "NBR\\d{2}\\.tif$"))
  
 # 3. Rinomina i layer con gli anni corretti
-names(nbr) <- c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
+names(nbr) = c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
 
 # rimuovo i valori=-1
-nbr[nbr == -1] <- NA
+nbr[nbr == -1] = NA
 
 # Ridgeline plot, forzare lo sfondo bianco per la palette usata (rocket)
 Rnbr = im.ridgeline(nbr, scale=0.9, palette="rocket")
@@ -166,7 +167,7 @@ ggsave("nbr_ridgeline.png", Rnbr, width = 8, height = 6, dpi = 300)
 library(patchwork)
 
 # Rimuovo l'etichetta asse Y da NDMI
-Rndmi_mod <- Rndmi + theme(axis.title.y = element_blank())
+Rndmi_mod = Rndmi + theme(axis.title.y = element_blank())
 
 # Visualizzazione grafici affiancati
 NBR_NDMI = Rnbr + Rndmi_mod
@@ -187,16 +188,16 @@ ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
 # INCENDIO (DIC 2021 - FEB 2022)
 
 # Calcolo indici per le condizioni pre incendio
-path_dic21 <- "C:/Users/feder/Desktop/29dic2021/geoTiff"
+path_dic21 = "C:/Users/feder/Desktop/29dic2021/geoTiff"
 
-red   <- rast(file.path(path_dic21, "B04.tiff"))
-nir   <- rast(file.path(path_dic21, "B08.tiff"))
-swir1 <- rast(file.path(path_dic21, "B11.tiff"))
-swir2 <- rast(file.path(path_dic21, "B12.tiff"))
+red   = rast(file.path(path_dic21, "B04.tiff"))
+nir   = rast(file.path(path_dic21, "B08.tiff"))
+swir1 = rast(file.path(path_dic21, "B11.tiff"))
+swir2 = rast(file.path(path_dic21, "B12.tiff"))
 
-ndvi.dic21 <- (nir - red) / (nir + red)
-ndmi.dic21 <- (nir - swir1) / (nir + swir1)
-nbr.dic21  <- (nir - swir2) / (nir + swir2)
+ndvi.dic21 = (nir - red) / (nir + red)
+ndmi.dic21 = (nir - swir1) / (nir + swir1)
+nbr.dic21  = (nir - swir2) / (nir + swir2)
 
 # assegno la dicitura "nbr/ndvi/ndmi.feb22" ai raster di feb2022 precedentemente importati negli stack per la realizzazione dei ridgeline plots degli indici
 nbr.feb22 = nbr[[4]]
@@ -210,12 +211,12 @@ dnbr = nbr.dic21 - nbr.feb22
 i_low = dnbr > 0.1 & dnbr <= 0.27
 
 #pixel bruciati
-pixel_low <- global(i_low, fun = "sum", na.rm = TRUE)
+pixel_low = global(i_low, fun = "sum", na.rm = TRUE)
 
 # Numero totale di pixel validi (non NA)
-pixel_tot <- global(!is.na(dnbr), fun = "sum", na.rm = TRUE)
+pixel_tot = global(!is.na(dnbr), fun = "sum", na.rm = TRUE)
 
-perc_low <- (pixel_low / pixel_tot) * 100
+perc_low = (pixel_low / pixel_tot) * 100
 perc_low
 # 30 %
 
@@ -274,24 +275,24 @@ dev.off()
 # PERCENTUALE AREA FRAMMENTATA
 # Crea una maschera booleana: TRUE dove il delta sd > 0.05
 area_fram = delta_sd_ndmi > 0.05
-pixel_fram <- global(area_fram, fun = "sum", na.rm = TRUE)
-pixel_tot <- global(!is.na(delta_sd_ndmi), fun = "sum", na.rm = TRUE)
-perc_fram <- (pixel_fram / pixel_tot) * 100
+pixel_fram = global(area_fram, fun = "sum", na.rm = TRUE)
+pixel_tot = global(!is.na(delta_sd_ndmi), fun = "sum", na.rm = TRUE)
+perc_fram = (pixel_fram / pixel_tot) * 100
 perc_fram
 # 11 %
 
 
 # PERCENTUALE AREA OMOGENEIZZATA
 area_omog = delta_sd_ndmi < 0.05
-pixel_omog <- global(area_omog, fun = "sum", na.rm = TRUE)
-perc_omog <- (pixel_omog / pixel_tot) * 100
+pixel_omog = global(area_omog, fun = "sum", na.rm = TRUE)
+perc_omog = (pixel_omog / pixel_tot) * 100
 perc_omog
 # 89 %
 
 
 
 
-# AREA BRUCIATA N-O IBERA' 2022
+# Visualizzazione AREA BRUCIATA N-O IBERA' 2022 per confronto con il delta SD NDMI
 
 incendio22 = rast(C:/Users/feder/Desktop/Ibera_22/B08.tiff")
 plot (incendio22, col=cividis(100))
