@@ -266,7 +266,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
 # Mappa
 plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(11))
-png("delta_sd_ndmi.png", width = 800, height = 600)
+png("delta_sd_ndmi.png", width = 1600, height = 1200, res = 150)
 plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(11))
 dev.off()
 
@@ -287,3 +287,15 @@ pixel_omog <- global(area_omog, fun = "sum", na.rm = TRUE)
 perc_omog <- (pixel_omog / pixel_tot) * 100
 perc_omog
 # 89 %
+
+
+
+
+# AREA BRUCIATA N-O IBERA' 2022
+
+incendio22 = rast(C:/Users/feder/Desktop/Ibera_22/B08.tiff")
+plot (incendio22, col=cividis(100))
+
+png("incendio2022.png", width = 1600, height = 1200, res = 150)
+plot(incendio22, legend= FALSE, main ="Incendio 2022", col=cividis(100))
+dev.off()
