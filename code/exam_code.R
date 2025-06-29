@@ -15,41 +15,41 @@ library(RStoolbox)  # FORSE, per sd
 # Percorso della cartella contenente le sottocartelle per ogni anno della sequenza 2019 - 2025
 
 # Anni da processare
-anni <- c(2019, 2020, 2021, 2022, 2023, 2024, 2025)
+anni = c(2019, 2020, 2021, 2022, 2023, 2024, 2025)
 
 # Tabella vuota per visualizzare il valore della media di ogni indice per anno
-tab.indici <- data.frame(Anno = integer(), NDVI = numeric(), NDMI = numeric(), NBR = numeric())
+tab.indici = data.frame(Anno = integer(), NDVI = numeric(), NDMI = numeric(), NBR = numeric())
 
 # CICLO FOR per calcolo indici
 for (anno in anni) {
   cat("Indici spettrali febbraio", anno, "\n")
 
 # percorso alle cartelle contenenti le bande
-path <- file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff")
+path = file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff")
 
 
 # Carica le bande
-  red   <- rast(file.path(path, "B04.tiff"))
-  nir   <- rast(file.path(path, "B08.tiff"))
-  swir1 <- rast(file.path(path, "B11.tiff"))
-  swir2 <- rast(file.path(path, "B12.tiff"))
+  red = rast(file.path(path, "B04.tiff"))
+  nir = rast(file.path(path, "B08.tiff"))
+  swir1 = rast(file.path(path, "B11.tiff"))
+  swir2 = rast(file.path(path, "B12.tiff"))
   
 # Calcolo indici
-  ndvi <- (nir - red) / (nir + red)
-  ndmi <- (nir - swir1) / (nir + swir1)
-  nbr  <- (nir - swir2) / (nir + swir2)
+  ndvi = (nir - red) / (nir + red)
+  ndmi = (nir - swir1) / (nir + swir1)
+  nbr = (nir - swir2) / (nir + swir2)
 
 # Calcolo medie degli indici, eliminando eventuali NA ed estraendo il solo valore numerico con [1] per il dataframe 
-  ndvi_mean <- global(ndvi, fun = "mean", na.rm = TRUE)[1]
-  ndmi_mean <- global(ndmi, fun = "mean", na.rm = TRUE)[1]
-  nbr_mean  <- global(nbr,  fun = "mean", na.rm = TRUE)[1] 
+  ndvi_mean = global(ndvi, fun = "mean", na.rm = TRUE)[1]
+  ndmi_mean = global(ndmi, fun = "mean", na.rm = TRUE)[1]
+  nbr_mean = global(nbr,  fun = "mean", na.rm = TRUE)[1] 
 
 # Aggiungi i risultati alla tabella
-  tab.indici <- rbind(tab.indici, data.frame(Anno = anno, NDVI = as.numeric(ndvi_mean), NDMI = as.numeric(ndmi_mean), NBR  = as.numeric(nbr_mean)))
-  rownames(tab.indici) <- NULL
+  tab.indici = rbind(tab.indici, data.frame(Anno = anno, NDVI = as.numeric(ndvi_mean), NDMI = as.numeric(ndmi_mean), NBR  = as.numeric(nbr_mean)))
+  rownames(tab.indici) = NULL
                                              
 # Cartella di output per raster indici
-out_dir <- file.path("C:/Users/feder/Desktop", "indici", as.character(anno))
+out_dir = file.path("C:/Users/feder/Desktop", "indici", as.character(anno))
 dir.create(out_dir, recursive = TRUE)
     
 # Salvataggio raster indici
@@ -65,7 +65,7 @@ tab.indici
 # esporto la tabella degli indici
 write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", row.names = FALSE)
 
-
+# rimuovo i dati esportati per prevenire errori di sovrascrizione
 rm(list=ls())
 
 
@@ -190,8 +190,8 @@ ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
 # Calcolo indici per le condizioni pre incendio
 path_dic21 = "C:/Users/feder/Desktop/29dic2021/geoTiff"
 
-red   = rast(file.path(path_dic21, "B04.tiff"))
-nir   = rast(file.path(path_dic21, "B08.tiff"))
+red = rast(file.path(path_dic21, "B04.tiff"))
+nir = rast(file.path(path_dic21, "B08.tiff"))
 swir1 = rast(file.path(path_dic21, "B11.tiff"))
 swir2 = rast(file.path(path_dic21, "B12.tiff"))
 
