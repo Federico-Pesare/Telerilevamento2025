@@ -64,9 +64,9 @@ tab.indici
 # esporto la tabella degli indici
 write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", row.names = FALSE)
 
-################
+
 rm(list=ls())
-###################
+
 
 # LINE PLOT: andamento (medie) NBR - NDVI - NDMI nella sequenza temporale 2019 - 2015
 
@@ -265,9 +265,9 @@ sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
 delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
 # Mappa
-plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(17))
-png("delta_sd_ndmi.png")
-plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(17))
+plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(11))
+png("delta_sd_ndmi.png", width = 800, height = 600)
+plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(11))
 dev.off()
 
 
