@@ -4,9 +4,7 @@ library(imageRy)
 library(viridis)
 library(ggplot2)  # grafici
 library(ggridges)  # ridgeline plots
-library(dplyr)
-library(patchwork)  # grafici affiancati
-library(RStoolbox)  # FORSE, per sd
+library(patchwork)  # combinare grafici ggplot2
 
 
 
