@@ -1,4 +1,4 @@
-# Analisi multi-temporale mediante indici spettrali (NDVI, NDMI, NBR) delle anomalie ambientali registrate nella Provincia di Corrientes (Argentina) fra 2019 e 2025.
+# Analisi multi-temporale mediante indici spettrali (NDVI, NDMI, NBR) delle anomalie ambientali registrate nell'Esteros del Iberà (Argentina) fra 2019 e 2025.
 
 # Pacchetti impiegati per condurre l'analisi
 library(terra)
