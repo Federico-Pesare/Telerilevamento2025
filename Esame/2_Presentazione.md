@@ -28,7 +28,7 @@ Febbraio (termine estate australe)
 
 Le immagini multispettrali Sentinel-2 sono state acquisite dal [Copernicus Browser](https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&themeId=DEFAULT-THEME&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE) 
 
-### :fire: NBR (Normalized Burn Ratio)
+**:fire: NBR (Normalized Burn Ratio)**
 Indice impiegato per identificare aree colpite da incendi e valutarne la severità.
 
 Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 2 (SWIR2)
