@@ -132,12 +132,17 @@ NBR_NDMI = Rnbr + Rndmi_mod
 
 ## 2. Analisi dell'impatto nel 2022
 
-Variazione (Δ) NBR fra dicembre 2021 e febbraio 2022
+Variazione (Δ) NBR fra dicembre 2021 e febbraio 2022.
+
+-1 < ΔNBR < 1
+
 ```r
-dnbr = nbr.dic21 - nbr.feb22                        #    -1 < ΔNBR < 1
+dnbr = nbr.dic21 - nbr.feb22                        
 ```
 
+Immagine true color del 7 febbraio 2022:
 <img src="img/7feb2022.jpg" width=70% />
+*Fonte: Copernicus Browser*
 
 - **IMPATTO LIEVE: 0.1 < ΔNBR < 0.27**
   
