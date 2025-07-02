@@ -26,7 +26,7 @@ Febbraio (termine estate australe)
 
 Le immagini multispettrali Sentinel-2 sono state acquisite dal [Copernicus Browser](https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&themeId=DEFAULT-THEME&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE) 
 
-### NBR (Normalized Burn Ratio)
+### - NBR (Normalized Burn Ratio)
 Indice impiegato per identificare aree colpite da incendi e valutarne la severità.
 
 Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 2 (SWIR2)
@@ -35,7 +35,7 @@ Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 2 (SWIR2)
 NBR = (NIR - SWIR2) / (NIR + SWIR2)
 ```
 
-### NDMI (Normalized Difference Moisture Index)
+### - NDMI (Normalized Difference Moisture Index)
 Indice impiegato per valutare il contenuto idrico della vegetazione e condizioni di siccità.
 
 Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 1 (SWIR1)
@@ -44,7 +44,7 @@ Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 1 (SWIR1)
 NDMI = (NIR - SWIR1) / (NIR + SWIR1)
 ```
 
-### NDVI (Normalized Difference Vegetation Index)
+### - NDVI (Normalized Difference Vegetation Index)
 Indice impiegato per valutare lo stato di salute e densità della vegetazione.
 
 Bande utilizzate: Infrarosso vicino (NIR) e Rosso visibile (RED)
@@ -100,7 +100,7 @@ for (anno in anni) {
 
 Andamento delle medie spaziali dei tre indici analizzati nella serie temporale 2019 - 2025
 
-Codice impiegato:
+Mediante la funzione ggplot() del pacchetto ggplot2:
 ```r
 line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line(size = 1.2) + geom_point(size = 1.4) + labs(x = "anni", y = "valore medio", color=NULL) + scale_x_continuous(breaks = 2019:2025) + scale_color_manual(values = c( "NDVI" = "forestgreen", "NDMI" = "cornflowerblue", "NBR"  = "firebrick")) + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 ```
