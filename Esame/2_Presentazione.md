@@ -200,11 +200,29 @@ Immagine *true color* del 7 febbraio 2022 :
 
   Studio della variazione della deviazione standard associata al NDMI fra 2024 e 2019  (-1 < ΔSD < 1)
 
-  Calcolo della sd locale mediante la funzione focal() del pacchetto terra, e successivamente del Δ sd
+  Calcolo della sd locale mediante la funzione focal() del pacchetto terra, e successivamente del Δ sd:
   ```r 
   sd_ndmi19 = focal(ndmi19, w=c(3,3), fun=sd, na.rm=TRUE)  
   sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
 
   delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
   ```
+
   
+  - % area più frammentata: Δ SD NDMI > 0.05
+
+    ```r 
+    area_fram = delta_sd_ndmi > 0.05
+    pixel_fram = global(area_fram, fun = "sum", na.rm = TRUE)
+    pixel_tot = global(!is.na(delta_sd_ndmi), fun = "sum", na.rm = TRUE)
+    perc_fram = (pixel_fram / pixel_tot) * 100
+    ```
+    
+  - % area più omogenea: Δ SD NDMI < 0.05
+        
+    ```r 
+    area_omog = delta_sd_ndmi < 0.05
+    pixel_omog = global(area_omog, fun = "sum", na.rm = TRUE)
+    perc_omog = (pixel_omog / pixel_tot) * 100
+    ```
+    
