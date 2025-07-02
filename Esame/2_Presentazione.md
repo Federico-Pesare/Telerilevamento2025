@@ -108,9 +108,9 @@ line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line
 <img src="img/Lineplot.png" width=70% />
 
 FENOMENI CORRELATI AL TREND DEGLI INDICI:
-*La Niña*: 2020-2023, 2025
-*El Niño*: 2024
-Incendi: 2022, 2023, 2025
+- *La Niña*: 2020-2023, 2025
+- *El Niño*: 2024
+- Incendi: 2022, 2023, 2025
 
 ### RIDGELINE PLOTS
 
@@ -119,7 +119,7 @@ Distribuzione e variabilità spaziale degli indici nel tempo.
 Grafico della distribuzione di NBR, NDMI, NDVI mediante la funzione im.ridgeline() del pacchetto imageRy:
 ```r
 Rnbr = im.ridgeline(nbr, scale=0.9, palette="rocket")
-Rndvi = im.ridgeline(ndvi, scale=0.9, palette="viridis")
+Rndvi = im.ridgeline(ndvi, scale=0.9, palette="viridis")   
 Rndmi = im.ridgeline(ndmi, scale=0.9, palette="mako")
 ```
 Distribuzione di NBR e NDMI a confronto, sfruttando il pacchetto patchwork:
