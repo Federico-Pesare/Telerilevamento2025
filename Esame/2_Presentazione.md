@@ -26,7 +26,14 @@ Febbraio (termine estate australe)
 
 
 ### NBR (Normalized Burn Ratio)
+Indice impiegato per identificare le aree bruciate e valutare la gravità degli incendi.
+
+Utilizza Near-Infrared (NIR) e Short-Wave InfraRed 2.1 µm (SWIR2)
+
+'''r
+NBR = NIR - SWIR2 / NIR + SWIR2
+'''
 
 ### NDMI (Normalized Difference Moisture Index)
-#### jn
+
 ### NDVI (Normalized Difference Vegetation Index)
