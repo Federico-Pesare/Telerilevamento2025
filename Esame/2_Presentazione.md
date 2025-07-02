@@ -56,11 +56,11 @@ NDVI = (NIR - RED) / (NIR + RED)
 
 **Pacchetti** utilizzati in R per condurre l'analisi:
 ```r
-library(terra)  # Analisi e manipolazione di raster e dati geospaziali
-library(imageRy)  # Visualizzazione e gestione di immagini raster
-library(viridis)  # Palette di colori per ottimizzare la leggibilità grafica
-library(ggplot2)  # Creazione di grafici basata su grammatiche visive
-library(ggridges)  # Creazione di ridgeline plots per analisi della distribuzione
+library(terra)      # Analisi e manipolazione di raster e dati geospaziali
+library(imageRy)    # Visualizzazione e gestione di immagini raster
+library(viridis)    # Palette di colori per ottimizzare la leggibilità grafica
+library(ggplot2)    # Creazione di grafici basata su grammatiche visive
+library(ggridges)   # Creazione di ridgeline plots per analisi della distribuzione
 library(patchwork)  # Combinazione di più grafici ggplot2 in un unico layout
 ```
 
@@ -147,7 +147,7 @@ dnbr = nbr.dic21 - nbr.feb22
   perc_low = (pixel_low / pixel_tot) * 100                        # calcolo la percentuale
   ```
 
-  =***30 %***
+  = ***30 %***
   
 - **IMPATTO MODERATO** %sup
 
@@ -157,7 +157,7 @@ dnbr = nbr.dic21 - nbr.feb22
   perc_med = (pixel_med / pixel_tot) * 100
   ```
 
-  =***19 %***
+  = ***19 %***
   
 - **IMPATTO ELEVATO** %sup
 
@@ -167,7 +167,7 @@ dnbr = nbr.dic21 - nbr.feb22
   perc_high = (pixel_high / pixel_tot) * 100
   ```
 
-  =***24 %***
+  = ***24 %***
 
 - **VEGETAZIONE RESIDUA** %sup
 
@@ -177,4 +177,7 @@ dnbr = nbr.dic21 - nbr.feb22
   perc_vegres = (pixel_vegres / pixel_tot) * 100
   ```
 
-  =***11 %***
+  = ***11 %***
+
+
+  ## 3. Analisi della variabilità spaziale
