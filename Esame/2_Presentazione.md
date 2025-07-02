@@ -142,7 +142,7 @@ Variazione (Δ) NBR fra dicembre 2021 e febbraio 2022.
 dnbr = nbr.dic21 - nbr.feb22                        
 ```
 
-Immagine true color del 7 febbraio 2022:
+Immagine *true color* del 7 febbraio 2022 :
 
 <img src="img/7feb2022.jpg" width=80% />
 
@@ -157,7 +157,7 @@ Immagine true color del 7 febbraio 2022:
   perc_low = (pixel_low / pixel_tot) * 100                        # calcolo la percentuale
   ```
 
-  = ***30 %***
+  = ***30 %*** della superficie analizzata*
   
 - **IMPATTO MODERATO:  0.27 < ΔNBR < 0.44**
 
@@ -167,7 +167,7 @@ Immagine true color del 7 febbraio 2022:
   perc_med = (pixel_med / pixel_tot) * 100
   ```
 
-  = ***19 %***
+  = ***19 %*** *
   
 - **IMPATTO ELEVATO:  ΔNBR > 0.44** 
 
@@ -177,7 +177,7 @@ Immagine true color del 7 febbraio 2022:
   perc_high = (pixel_high / pixel_tot) * 100
   ```
 
-  = ***24 %***
+  = ***24 %*** *
 
 - **VEGETAZIONE RESIDUA** 
 
@@ -187,7 +187,13 @@ Immagine true color del 7 febbraio 2022:
   perc_vegres = (pixel_vegres / pixel_tot) * 100
   ```
 
-  = ***11 %***
+  = ***11 %*** *
 
 
-  ## 3. Analisi della variabilità spaziale
+  ## 3. Analisi della variabilità spaziale post disturbo
+
+  Area N-O Riserva Iberá; superficie ~ 2.000 km²
+
+  <img src="img/IBERA'.png" width=80% />
+
+  
