@@ -141,10 +141,10 @@ dnbr = nbr.dic21 - nbr.feb22
 ```
 
 Immagine true color del 7 febbraio 2022:
-<img src="img/7feb2022.jpg" width=70% />
+<img src="img/7feb2022.jpg" width=80% />
 *Fonte: Copernicus Browser*
 
-- **IMPATTO LIEVE: 0.1 < ΔNBR < 0.27**
+- **IMPATTO LIEVE:  0.1 < ΔNBR < 0.27**
   
   ```r
   i_low = dnbr > 0.1 & dnbr <= 0.27                               # imposto il range
@@ -155,7 +155,7 @@ Immagine true color del 7 febbraio 2022:
 
   = ***30 %***
   
-- **IMPATTO MODERATO: 0.27 < ΔNBR < 0.44**
+- **IMPATTO MODERATO:  0.27 < ΔNBR < 0.44**
 
   ```r
   i_med = dnbr > 0.27 & dnbr <= 0.44
@@ -165,7 +165,7 @@ Immagine true color del 7 febbraio 2022:
 
   = ***19 %***
   
-- **IMPATTO ELEVATO: ΔNBR > 0.44** 
+- **IMPATTO ELEVATO:  ΔNBR > 0.44** 
 
   ```r
   i_high = dnbr > 0.44
