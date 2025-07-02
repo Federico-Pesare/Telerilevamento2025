@@ -19,7 +19,6 @@ Superficie analizzata: ~ 24.000 km²
 ## Analisi multitemporale su indici spettrali
 
 Periodo di riferimento dal 2019 al 2025: 
-
 Febbraio: termine della stagione caldo-umida (estate australe)
 - Bassa nuvolosità: < 5%
 - Picco biomassa
