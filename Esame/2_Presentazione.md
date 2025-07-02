@@ -122,10 +122,10 @@ Rnbr = im.ridgeline(nbr, scale=0.9, palette="rocket")
 Rndvi = im.ridgeline(ndvi, scale=0.9, palette="viridis")
 Rndmi = im.ridgeline(ndmi, scale=0.9, palette="mako")
 ```
-Grafici NBR e NDMI affiancati sfruttando il pacchetto patchwork:
+Distribuzione di NBR e NDMI a confronto, sfruttando il pacchetto patchwork:
 ```r
 NBR_NDMI = Rnbr + Rndmi_mod
 ```
 
-Distribuzione NBR e NDMI a confronto:
-<img src="img/NBR_NDMI.png" width=70% />
+![NBR_NDMI](img/NBR_NDMI.png)
+
