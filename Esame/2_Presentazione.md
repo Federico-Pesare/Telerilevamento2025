@@ -1,6 +1,7 @@
 # Gli *Esteros del Iberá* tra siccità e incendi: analisi multitemporale delle dinamiche ambientali tra 2019 e 2025.
 
 ![Parque Iberà 2022](img/incendio2022.jpg)
+
 *Fonte: Fundación Rewilding Argentina*
 
 
@@ -13,6 +14,7 @@ Eco-regione degli *Esteros del Iberá*.
 Superficie analizzata: ~ 24.000 km²
 
 <img src="img/PROVINCIA_DI_CORRIENTES.png" width=80% />
+
 *Fonte: Municipalidad de Colonia Carlos Pellegrini*
 
 
@@ -141,7 +143,9 @@ dnbr = nbr.dic21 - nbr.feb22
 ```
 
 Immagine true color del 7 febbraio 2022:
+
 <img src="img/7feb2022.jpg" width=80% />
+
 *Fonte: Copernicus Browser*
 
 - **IMPATTO LIEVE:  0.1 < ΔNBR < 0.27**
