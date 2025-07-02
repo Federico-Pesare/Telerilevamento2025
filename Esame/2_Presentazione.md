@@ -30,9 +30,9 @@ Indice impiegato per identificare le aree bruciate e valutare la gravità degli 
 
 Utilizza Near-Infrared (NIR) e Short-Wave InfraRed 2.1 µm (SWIR2)
 
-'''r
+```r
 NBR = NIR - SWIR2 / NIR + SWIR2
-'''
+```
 
 ### NDMI (Normalized Difference Moisture Index)
 
