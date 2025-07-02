@@ -139,25 +139,27 @@ dnbr = nbr.dic21 - nbr.feb22
 -1 < ΔNBR < 1
 
 - **IMPATTO LIEVE** %sup
-  ***30 %***
+  
   ```r
   i_low = dnbr > 0.1 & dnbr <= 0.27                               # imposto il range
   pixel_low = global(i_low, fun = "sum", na.rm = TRUE)            # calcolo i pixel nel range
   pixel_tot = global(!is.na(dnbr), fun = "sum", na.rm = TRUE)     # calcolo i pixel totali
   perc_low = (pixel_low / pixel_tot) * 100                        # calcolo la percentuale
   ```
+
+  =***30 %***
   
 - **IMPATTO MODERATO** %sup
-  ***19 %***
 
   ```r
   i_med = dnbr > 0.27 & dnbr <= 0.44
   pixel_med = global(i_med, fun = "sum", na.rm = TRUE)
   perc_med = (pixel_med / pixel_tot) * 100
   ```
+
+  =***19 %***
   
 - **IMPATTO ELEVATO** %sup
-  ***24 %***
 
   ```r
   i_high = dnbr > 0.44
@@ -165,11 +167,14 @@ dnbr = nbr.dic21 - nbr.feb22
   perc_high = (pixel_high / pixel_tot) * 100
   ```
 
+  =***24 %***
+
 - **VEGETAZIONE RESIDUA** %sup
-  ***11 %***
 
   ```r
   veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
   pixel_vegres = global(veg_res, fun = "sum", na.rm = TRUE)
   perc_vegres = (pixel_vegres / pixel_tot) * 100
   ```
+
+  =***11 %***
