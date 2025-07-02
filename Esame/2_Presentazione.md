@@ -134,13 +134,12 @@ NBR_NDMI = Rnbr + Rndmi_mod
 
 Variazione (Δ) NBR fra dicembre 2021 e febbraio 2022
 ```r
-dnbr = nbr.dic21 - nbr.feb22
+dnbr = nbr.dic21 - nbr.feb22                        #    -1 < ΔNBR < 1
 ```
--1 < ΔNBR < 1
 
-![incendio](img/7feb2022.jpg)
+<img src="img/7feb2022.jpg" width=70% />
 
-- **IMPATTO LIEVE** %sup
+- **IMPATTO LIEVE: 0.1 < ΔNBR < 0.27**
   
   ```r
   i_low = dnbr > 0.1 & dnbr <= 0.27                               # imposto il range
@@ -151,7 +150,7 @@ dnbr = nbr.dic21 - nbr.feb22
 
   = ***30 %***
   
-- **IMPATTO MODERATO** %sup
+- **IMPATTO MODERATO: 0.27 < ΔNBR < 0.44**
 
   ```r
   i_med = dnbr > 0.27 & dnbr <= 0.44
@@ -161,7 +160,7 @@ dnbr = nbr.dic21 - nbr.feb22
 
   = ***19 %***
   
-- **IMPATTO ELEVATO** %sup
+- **IMPATTO ELEVATO: ΔNBR > 0.44** 
 
   ```r
   i_high = dnbr > 0.44
@@ -171,7 +170,7 @@ dnbr = nbr.dic21 - nbr.feb22
 
   = ***24 %***
 
-- **VEGETAZIONE RESIDUA** %sup
+- **VEGETAZIONE RESIDUA** 
 
   ```r
   veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
