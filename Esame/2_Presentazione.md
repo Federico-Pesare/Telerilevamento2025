@@ -16,7 +16,7 @@ Superficie analizzata: ~ 24.000 km²
 *Fonte: Municipalidad de Colonia Carlos Pellegrini*
 
 
-## Analisi multitemporale su indici spettrali
+## 1. Analisi multitemporale su indici spettrali
 
 Periodo di riferimento dal 2019 al 2025: 
 Febbraio (termine estate australe)
@@ -98,14 +98,34 @@ for (anno in anni) {
 
 ### LINE PLOT
 
-Andamento delle medie spaziali dei tre indici analizzati nella serie temporale 2019 - 2025
+Andamento delle medie spaziali degli indici nella serie temporale 2019 - 2025.
 
-Mediante la funzione ggplot() del pacchetto ggplot2:
+Grafico delle medie annuali mediante la funzione ggplot() del pacchetto ggplot2:
 ```r
 line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line(size = 1.2) + geom_point(size = 1.4) + labs(x = "anni", y = "valore medio", color=NULL) + scale_x_continuous(breaks = 2019:2025) + scale_color_manual(values = c( "NDVI" = "forestgreen", "NDMI" = "cornflowerblue", "NBR"  = "firebrick")) + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 ```
 
 <img src="img/Lineplot.png" width=70% />
 
+FENOMENI CORRELATI AL TREND DEGLI INDICI:
+*La Niña*: 2020-2023, 2025
+*El Niño*: 2024
+Incendi: 2022, 2023, 2025
 
 ### RIDGELINE PLOTS
+
+Distribuzione e variabilità spaziale degli indici nel tempo.
+
+Grafico della distribuzione di NBR, NDMI, NDVI mediante la funzione im.ridgeline() del pacchetto imageRy:
+```r
+Rnbr = im.ridgeline(nbr, scale=0.9, palette="rocket")
+Rndvi = im.ridgeline(ndvi, scale=0.9, palette="viridis")
+Rndmi = im.ridgeline(ndmi, scale=0.9, palette="mako")
+```
+Grafici NBR e NDMI affiancati sfruttando il pacchetto patchwork:
+```r
+NBR_NDMI = Rnbr + Rndmi_mod
+```
+
+Distribuzione NBR e NDMI a confronto:
+<img src="img/NBR_NDMI.png" width=70% />
