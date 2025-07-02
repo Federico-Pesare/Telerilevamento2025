@@ -106,7 +106,7 @@ line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line
 ```
 
 L'output è il seguente:
-<img src = "img/Lineplot.png" width=70%>
+<img src="img/Lineplot.png" width=70% />
 
 
 ### RIDGELINE PLOTS
