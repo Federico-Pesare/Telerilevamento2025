@@ -58,7 +58,7 @@ NDVI = (NIR - RED) / (NIR + RED)
 ```r
 library(terra)  # Analisi e manipolazione di raster e dati geospaziali
 library(imageRy)  # Visualizzazione e gestione di immagini raster
-library(viridis)  # Palette di colori per ottimizzare la legibilità grafica
+library(viridis)  # Palette di colori per ottimizzare la leggibilità grafica
 library(ggplot2)  # Creazione di grafici basata su grammatiche visive
 library(ggridges)  # Creazione di ridgeline plots per analisi della distribuzione
 library(patchwork)  # Combinazione di più grafici ggplot2 in un unico layout
@@ -95,3 +95,18 @@ for (anno in anni) {
  cat("✓ Indici salvati in:", out_dir, "\n")
 }
 ```
+
+### LINE PLOT
+
+Andamento delle medie spaziali dei tre indici analizzati nella serie temporale 2019 - 2025
+
+Codice impiegato:
+```r
+line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line(size = 1.2) + geom_point(size = 1.4) + labs(x = "anni", y = "valore medio", color=NULL) + scale_x_continuous(breaks = 2019:2025) + scale_color_manual(values = c( "NDVI" = "forestgreen", "NDMI" = "cornflowerblue", "NBR"  = "firebrick")) + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
+```
+
+L'output è il seguente:
+![Lineplot](img/Lineplot.png)
+
+
+### RIDGELINE PLOTS
