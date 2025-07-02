@@ -190,23 +190,23 @@ Immagine *true color* del 7 febbraio 2022 :
   = ***11 %*** *
 
 
-  ## 3. Analisi della variabilità spaziale post disturbo
+## 3. Analisi della variabilità spaziale post disturbo
 
-  Area N-O Riserva Iberá; superficie ~ 2.000 km²
+Area N-O Riserva Iberá; superficie ~ 2.000 km²
 
-  <img src="img/IBERA'.png" width=80% />
+<img src="img/IBERA'.png" width=80% />
 
-  **Δ SD NDMI**:
+**Δ SD NDMI**:
 
-  Studio della variazione della deviazione standard associata al NDMI fra 2024 e 2019  (-1 < ΔSD < 1)
+Studio della variazione della deviazione standard associata al NDMI fra 2024 e 2019  (-1 < ΔSD < 1)
 
-  Calcolo della sd locale mediante la funzione focal() del pacchetto terra, e successivamente del Δ sd:
-  ```r 
-  sd_ndmi19 = focal(ndmi19, w=c(3,3), fun=sd, na.rm=TRUE)  
-  sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
+Calcolo della sd locale mediante la funzione focal() del pacchetto terra, e successivamente del Δ sd:
+```r 
+sd_ndmi19 = focal(ndmi19, w=c(3,3), fun=sd, na.rm=TRUE)  
+sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
 
-  delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
-  ```
+delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
+```
 
   
   - % area più frammentata: Δ SD NDMI > 0.05
@@ -231,6 +231,9 @@ Immagine *true color* del 7 febbraio 2022 :
     = *89 %*
 
 
-    Confronto fra superfici incendiate nel 2022 e l'evoluzione del territorio nel 2024 rispetto al 2019:
+Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 2024:
+![incendio_vs_evoluzione](img/incendio_deltasdndmi.png)
 
-    ![incendio_vs_evoluzione](img/incendio_deltasdndmi.png)
+
+
+
