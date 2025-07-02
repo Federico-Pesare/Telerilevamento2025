@@ -27,4 +27,6 @@ Febbraio: termine della stagione caldo-umida (estate australe)
 
 
 INDICI:
-### - NBR (Normalized Burn Ratio)
+- **NBR** (Normalized Burn Ratio)
+- **NDMI** (Normalized Difference Moisture Index)
+- **NDVI** (Normalized Difference Vegetation Index)
