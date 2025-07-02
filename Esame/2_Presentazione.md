@@ -19,13 +19,13 @@ Superficie analizzata: ~ 24.000 km²
 ## Analisi multitemporale su indici spettrali
 
 Periodo di riferimento dal 2019 al 2025: 
-Febbraio: termine della stagione caldo-umida (estate australe)
+Febbraio (termine estate australe)
 - Bassa nuvolosità: < 5%
 - Picco biomassa
-- Picco degli incendi
+- Picco incendi
 
 
-INDICI:
+INDICI SPETTRALI:
 - **NBR** (Normalized Burn Ratio)
 - **NDMI** (Normalized Difference Moisture Index)
 - **NDVI** (Normalized Difference Vegetation Index)
