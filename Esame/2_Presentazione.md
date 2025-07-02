@@ -196,4 +196,15 @@ Immagine *true color* del 7 febbraio 2022 :
 
   <img src="img/IBERA'.png" width=80% />
 
+  **Δ SD NDMI**:
+
+  Studio della variazione della deviazione standard associata al NDMI fra 2024 e 2019  (-1 < ΔSD < 1)
+
+  Calcolo della sd locale mediante la funzione focal() del pacchetto terra, e successivamente del Δ sd
+  ```r 
+  sd_ndmi19 = focal(ndmi19, w=c(3,3), fun=sd, na.rm=TRUE)  
+  sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
+
+  delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
+  ```
   
