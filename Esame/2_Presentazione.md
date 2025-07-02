@@ -229,4 +229,8 @@ Immagine *true color* del 7 febbraio 2022 :
     ```
 
     = *89 %*
-    
+
+
+    Confronto fra superfici incendiate nel 2022 e l'evoluzione del territorio nel 2024 rispetto al 2019:
+
+    ![incendio_vs_evoluzione](img/incendio_deltasdndmi.png)
