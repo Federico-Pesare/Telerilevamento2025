@@ -25,5 +25,6 @@ Febbraio: termine della stagione caldo-umida (estate australe)
 - Picco biomassa
 - Picco degli incendi
 
-Indici impiegati:
-### NBR
+
+INDICI:
+### - NBR (Normalized Burn Ratio)
