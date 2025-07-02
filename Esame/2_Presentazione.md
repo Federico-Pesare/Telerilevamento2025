@@ -37,7 +37,7 @@ Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 2 (SWIR2)
 NBR = (NIR - SWIR2) / (NIR + SWIR2)
 ```
 
-### - NDMI (Normalized Difference Moisture Index)
+### :sweat_drops: NDMI (Normalized Difference Moisture Index)
 Indice impiegato per valutare il contenuto idrico della vegetazione e condizioni di siccità.
 
 Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 1 (SWIR1)
@@ -46,7 +46,7 @@ Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 1 (SWIR1)
 NDMI = (NIR - SWIR1) / (NIR + SWIR1)
 ```
 
-### - NDVI (Normalized Difference Vegetation Index)
+### :deciduous_tree: NDVI (Normalized Difference Vegetation Index)
 Indice impiegato per valutare lo stato di salute e densità della vegetazione.
 
 Bande utilizzate: Infrarosso vicino (NIR) e Rosso visibile (RED)
