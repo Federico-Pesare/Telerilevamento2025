@@ -25,7 +25,8 @@ Febbraio (termine estate australe)
 - Picco incendi
 
 
-INDICI SPETTRALI:
-- **NBR** (Normalized Burn Ratio)
-- **NDMI** (Normalized Difference Moisture Index)
-- **NDVI** (Normalized Difference Vegetation Index)
+### NBR (Normalized Burn Ratio)
+
+### NDMI (Normalized Difference Moisture Index)
+#### jn
+### NDVI (Normalized Difference Vegetation Index)
