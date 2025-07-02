@@ -5,3 +5,8 @@
 
 ## Area di studio
 
+Areale nord della Provincia di Corrientes, Argentina.
+Eco-regione degli *Esteros del Iberá*
+Superficie analizzata: ~ 24.000 km²
+
+![Esteros del Iberá](img/PROVINCIA DI CORRIENTES.png)
