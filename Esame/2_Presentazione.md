@@ -53,7 +53,7 @@ NDVI = (NIR - RED) / (NIR + RED)
 ```
 
 
-Pacchetti impiegati in R per condurre l'analisi:
+**Pacchetti** utilizzati in R per condurre l'analisi:
 ```r
 library(terra)  # Analisi e manipolazione di raster e dati geospaziali
 library(imageRy)  # Visualizzazione e gestione di immagini raster
@@ -61,4 +61,36 @@ library(viridis)  # Palette di colori per ottimizzare la legibilità grafica
 library(ggplot2)  # Creazione di grafici basata su grammatiche visive
 library(ggridges)  # Creazione di ridgeline plots per analisi della distribuzione
 library(patchwork)  # Combinazione di più grafici ggplot2 in un unico layout
+```
+
+
+**Ciclo *for***: ottimizzazione calcolo degli indici 
+```r
+# Anni da processare
+anni = c(2019, 2020, 2021, 2022, 2023, 2024, 2025)
+
+for (anno in anni) {
+  cat("Indici spettrali febbraio", anno, "\n")
+
+# percorso alle cartelle contenenti le bande
+ path = file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff")
+
+# Caricare le bande con la funzione rast() del pacchetto terra
+  red = rast(file.path(path, "B04.tiff"))
+  nir = rast(file.path(path, "B08.tiff"))
+  swir1 = rast(file.path(path, "B11.tiff"))
+  swir2 = rast(file.path(path, "B12.tiff"))
+  
+# Calcolo degli indici
+  ndvi = (nir - red) / (nir + red)
+  ndmi = (nir - swir1) / (nir + swir1)
+  nbr = (nir - swir2) / (nir + swir2)
+
+# Calcolo le medie degli indici, eliminando eventuali NA 
+  ndvi_mean = global(ndvi, fun = "mean", na.rm = TRUE)[1]
+  ndmi_mean = global(ndmi, fun = "mean", na.rm = TRUE)[1]
+  nbr_mean = global(nbr,  fun = "mean", na.rm = TRUE)[1]
+
+ cat("✓ Indici salvati in:", out_dir, "\n")
+}
 ```
