@@ -231,7 +231,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
     = *89 %*
 
 
-Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 2024:
+                               Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 2024:
 ![incendio_vs_evoluzione](img/incendio_deltasdndmi.png)
 
 
