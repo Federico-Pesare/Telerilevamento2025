@@ -138,6 +138,8 @@ dnbr = nbr.dic21 - nbr.feb22
 ```
 -1 < ΔNBR < 1
 
+![incendio](img/7feb2022.jpg)
+
 - **IMPATTO LIEVE** %sup
   
   ```r
