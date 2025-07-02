@@ -1,6 +1,6 @@
 # Telerilevamento 2025
 
-This repo is related to the Course on remote Sensing in R at UNIBO
+This repository is related to the course on Remote Sensing in R at UNIBO.
 
 ## Used languages
 
