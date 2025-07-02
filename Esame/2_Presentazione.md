@@ -217,6 +217,8 @@ Immagine *true color* del 7 febbraio 2022 :
     pixel_tot = global(!is.na(delta_sd_ndmi), fun = "sum", na.rm = TRUE)
     perc_fram = (pixel_fram / pixel_tot) * 100
     ```
+
+    = *11 %*
     
   - % area più omogenea: Δ SD NDMI < 0.05
         
@@ -225,4 +227,6 @@ Immagine *true color* del 7 febbraio 2022 :
     pixel_omog = global(area_omog, fun = "sum", na.rm = TRUE)
     perc_omog = (pixel_omog / pixel_tot) * 100
     ```
+
+    = *89 %*
     
