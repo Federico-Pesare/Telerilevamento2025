@@ -12,7 +12,7 @@ Eco-regione degli *Esteros del Iberá*.
 
 Superficie analizzata: ~ 24.000 km²
 
-<img src="PROVINCIA_DI_CORRIENTES.png" width=70% />
+<img src="img/PROVINCIA_DI_CORRIENTES.png" width=70% />
 *Fonte: Municipalidad de Colonia Carlos Pellegrini*
 
 
