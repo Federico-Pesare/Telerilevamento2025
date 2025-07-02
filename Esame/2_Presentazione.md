@@ -24,6 +24,7 @@ Febbraio (termine estate australe)
 - Picco biomassa
 - Picco incendi
 
+Le immagini multispettrali Sentinel-2 sono state acquisite dal [Copernicus Browser](https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&themeId=DEFAULT-THEME&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE) 
 
 ### NBR (Normalized Burn Ratio)
 Indice impiegato per identificare aree colpite da incendi e valutarne la severità.
@@ -72,10 +73,10 @@ anni = c(2019, 2020, 2021, 2022, 2023, 2024, 2025)
 for (anno in anni) {
   cat("Indici spettrali febbraio", anno, "\n")
 
-# percorso alle cartelle contenenti le bande
+# Percorso alle cartelle contenenti le bande
  path = file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff")
 
-# Caricare le bande con la funzione rast() del pacchetto terra
+# Carico le bande con la funzione rast() del pacchetto terra
   red = rast(file.path(path, "B04.tiff"))
   nir = rast(file.path(path, "B08.tiff"))
   swir1 = rast(file.path(path, "B11.tiff"))
