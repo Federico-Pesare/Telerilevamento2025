@@ -193,13 +193,13 @@ Immagine *true color* del 7 febbraio 2022 :
 
 ## 3. Analisi della variabilità spaziale post disturbo
 
-Area N-O Riserva Iberá; superficie ~ 2.000 km²
+Area nord-ovest Riserva Iberá; superficie ~ 2.000 km²
 
 <img src="img/IBERA'.png" width=80% />
 
-**Δ SD NDMI**:
+**Δsd NDMI**:
 
-Studio della variazione della deviazione standard associata al NDMI fra 2024 e 2019  (-1 < ΔSD < 1)
+Studio della variazione della deviazione standard associata al NDMI fra 2024 e 2019  (-1 < Δsd < 1)
 
 Calcolo della sd locale mediante la funzione focal() del pacchetto terra, e successivamente del Δ sd:
 ```r 
@@ -210,7 +210,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 ```
 
   
-  - % area più frammentata: Δ SD NDMI > 0.05
+  - % area più frammentata: Δsd NDMI > 0.05
 
     ```r 
     area_fram = delta_sd_ndmi > 0.05
@@ -221,7 +221,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
     = *11 %*
     
-  - % area più omogenea: Δ SD NDMI < 0.05
+  - % area più omogenea: Δsd NDMI < 0.05
         
     ```r 
     area_omog = delta_sd_ndmi < 0.05
