@@ -196,6 +196,7 @@ Immagine *true color* del 7 febbraio 2022 :
 Area nord-ovest Riserva Iberá; superficie ~ 2.000 km²
 
 <img src="img/IBERA'.png" width=80% />
+*Fonte: Municipalidad de Colonia Carlos Pellegrini*
 
 ***Δsd NDMI***:
 
@@ -210,7 +211,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 ```
 
   
-  - % area più frammentata: *Δsd* NDMI > 0.05
+  - % area più frammentata: *Δsd NDMI* > 0.05
 
     ```r 
     area_fram = delta_sd_ndmi > 0.05
@@ -221,7 +222,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
     = *11 %*
     
-  - % area più omogenea: *Δsd* NDMI < 0.05
+  - % area più omogenea: *Δsd NDMI* < 0.05
         
     ```r 
     area_omog = delta_sd_ndmi < 0.05
@@ -232,6 +233,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
     = *89 %*
 
 Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 2024:
+
 ![incendio_vs_evoluzione](img/incendio_sdndmi.png)
 
 
