@@ -139,7 +139,7 @@ NBR_NDMI = Rnbr + Rndmi_mod
 dnbr = nbr.dic21 - nbr.feb22                        
 ```
 
-Confronto con immagini *true color* tra feb 2019 e feb 2022  :
+Confronto immagini *true color* di feb 2019 e feb 2022  :
 
 <img src="img/2019_2022.png" width=80% />
 
