@@ -1,4 +1,4 @@
-# *Esteros del Iberá*, dinamiche ambientali tra siccità ed incendi
+# *Esteros del Iberá*: dinamiche ambientali tra siccità ed incendi.
 
 ![Parque Iberà 2022](img/incendio2022.jpg)
 
@@ -22,9 +22,9 @@ Superficie analizzata: ~ 24.000 km²
 
 Periodo di riferimento dal 2019 al 2025: 
 Febbraio (termine estate australe)
-- Bassa nuvolosità: < 5%
 - Picco biomassa
 - Picco incendi
+- Nuvolosità < 5%
 
 Le immagini multispettrali Sentinel-2 sono state acquisite dal [Copernicus Browser](https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&themeId=DEFAULT-THEME&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE) 
 
