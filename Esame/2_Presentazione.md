@@ -20,8 +20,9 @@ Superficie analizzata: ~ 24.000 km²
 
 ## 1. Analisi multitemporale su indici spettrali
 
-Periodo di riferimento dal 2019 al 2025: 
-Febbraio (termine estate australe)
+Periodo di riferimento: febbraio, dal 2019 al 2025.
+
+Termine dell'estate australe:
 - Picco biomassa
 - Picco incendi
 - Nuvolosità < 5%
