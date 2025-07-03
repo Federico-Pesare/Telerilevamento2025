@@ -251,6 +251,7 @@ sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
 delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 ```
 
+  <br>
   
   - % area più frammentata: *Δsd NDMI* > 0.05
 
@@ -262,6 +263,8 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
     ```
 
     = *11 %*
+
+    <br>
     
   - % area più omogenea: *Δsd NDMI* < 0.05
         
@@ -272,7 +275,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
     ```
 
     = *89 %*
-
+<br>
 <br>
 
 Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 2024:
