@@ -56,7 +56,7 @@ NDVI = (NIR - RED) / (NIR + RED)
 ```
 
 
-**Pacchetti** utilizzati in R per condurre l'analisi:
+**Pacchetti** utilizzati in R per condurre l'analisi :
 ```r
 library(terra)      # Analisi e manipolazione di raster e dati geospaziali
 library(imageRy)    # Visualizzazione e gestione di immagini raster
@@ -67,7 +67,7 @@ library(patchwork)  # Combinazione di più grafici ggplot2 in un unico layout
 ```
 
 
-**Ciclo *for***: ottimizzazione calcolo degli indici 
+**Ciclo *for***: ottimizzazione calcolo degli indici :
 ```r
 # Anni da processare
 anni = c(2019, 2020, 2021, 2022, 2023, 2024, 2025)
