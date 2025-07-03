@@ -5,7 +5,6 @@
 *Fonte: Fundación Rewilding Argentina*
 
 <br>
-[---]
 <br>
 <br>
 
