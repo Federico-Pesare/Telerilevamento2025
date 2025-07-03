@@ -196,6 +196,7 @@ Immagine *true color* del 7 febbraio 2022 :
 Area nord-ovest Riserva Iberá; superficie ~ 2.000 km²
 
 <img src="img/IBERA'.png" width=80% />
+
 *Fonte: Municipalidad de Colonia Carlos Pellegrini*
 
 
