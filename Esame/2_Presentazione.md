@@ -20,10 +20,9 @@ Superficie analizzata: ~ 24.000 km²
 
 *Fonte: Municipalidad de Colonia Carlos Pellegrini*
 
-
-
-
-
+<br>
+<br>
+<br>
 
 ## 1. Analisi multitemporale su indici spettrali
 
@@ -36,6 +35,9 @@ Termine dell'estate australe:
 
 Le immagini multispettrali Sentinel-2 sono state acquisite dal [Copernicus Browser](https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&themeId=DEFAULT-THEME&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE) 
 
+<br>
+<br>
+
 ### :fire: NBR (Normalized Burn Ratio)
 Indice impiegato per identificare aree colpite da incendi e valutarne la severità.
 
@@ -44,6 +46,8 @@ Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 2 (SWIR2)
 ```r
 NBR = (NIR - SWIR2) / (NIR + SWIR2)
 ```
+
+<br>
 
 ### :sweat_drops: NDMI (Normalized Difference Moisture Index)
 Indice impiegato per valutare il contenuto idrico della vegetazione e condizioni di siccità.
@@ -54,6 +58,8 @@ Bande utilizzate: Infrarosso vicino (NIR) e Infrarosso a onda corta 1 (SWIR1)
 NDMI = (NIR - SWIR1) / (NIR + SWIR1)
 ```
 
+<br>
+
 ### :deciduous_tree: NDVI (Normalized Difference Vegetation Index)
 Indice impiegato per valutare lo stato di salute e densità della vegetazione.
 
@@ -63,6 +69,8 @@ Bande utilizzate: Infrarosso vicino (NIR) e Rosso visibile (RED)
 NDVI = (NIR - RED) / (NIR + RED)
 ```
 
+<br>
+<br>
 
 **Pacchetti** utilizzati in R per condurre l'analisi :
 ```r
