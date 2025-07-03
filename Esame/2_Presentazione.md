@@ -141,7 +141,7 @@ dnbr = nbr.dic21 - nbr.feb22
 
 Confronto immagini *true color* di feb 2019 e feb 2022  :
 
-<img src="img/2019_2022.png" width=80% />
+![2019vs2022](img/2019_2022.png)
 
 *Fonte: Copernicus Browser*
 
