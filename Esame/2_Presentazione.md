@@ -135,7 +135,7 @@ NBR_NDMI = Rnbr + Rndmi_mod
 
 ## 2. Analisi dell'impatto nel 2022
 
-Variazione dNBR (Differenced NBR) fra dicembre 2021 e febbraio 2022.
+*Differenced NBR* (dNBR) fra dicembre 2021 e febbraio 2022.
 
 -1 < dNBR < 1
 
