@@ -180,7 +180,7 @@ Immagine *true color* del 7 febbraio 2022 :
 
   = ***24 %*** *
 
-  ### VEGETAZIONE RESIDUA
+  **VEGETAZIONE RESIDUA**
 
   ```r
   veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
@@ -197,9 +197,9 @@ Area nord-ovest Riserva Iberá; superficie ~ 2.000 km²
 
 <img src="img/IBERA'.png" width=80% />
 
-**Δsd NDMI**:
+***Δsd NDMI***:
 
-Studio della variazione della deviazione standard associata al NDMI fra 2024 e 2019  (-1 < Δsd < 1)
+Studio della variazione della deviazione standard associata al NDMI fra 2024 e 2019  (-1 < *Δsd* < 1)
 
 Calcolo della sd locale mediante la funzione focal() del pacchetto terra, e successivamente del Δ sd:
 ```r 
@@ -210,7 +210,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 ```
 
   
-  - % area più frammentata: Δsd NDMI > 0.05
+  - % area più frammentata: *Δsd* NDMI > 0.05
 
     ```r 
     area_fram = delta_sd_ndmi > 0.05
@@ -221,7 +221,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
     = *11 %*
     
-  - % area più omogenea: Δsd NDMI < 0.05
+  - % area più omogenea: *Δsd* NDMI < 0.05
         
     ```r 
     area_omog = delta_sd_ndmi < 0.05
@@ -232,6 +232,6 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
     = *89 %*
 
 Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 2024:
-![incendio_vs_evoluzione](img/incendio_deltasdndmi.png)
+![incendio_vs_evoluzione](img/incendio_sdndmi.png)
 
 
