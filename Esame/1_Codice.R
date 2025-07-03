@@ -1,12 +1,12 @@
 # Analisi multi-temporale mediante indici spettrali (NDVI, NDMI, NBR) delle anomalie ambientali registrate nell'Esteros del Iberà (Argentina) fra 2019 e 2025.
 
 # Pacchetti impiegati per condurre l'analisi
-library(terra)
-library(imageRy)
-library(viridis)
-library(ggplot2)  # grafici
-library(ggridges)  # ridgeline plots
-library(patchwork)  # combinare grafici ggplot2
+library(terra)      # Analisi e manipolazione di raster e dati geospaziali
+library(imageRy)    # Visualizzazione e gestione di immagini raster
+library(viridis)    # Palette di colori per ottimizzare la leggibilità grafica
+library(ggplot2)    # Creazione di grafici basata su grammatiche visive
+library(ggridges)   # Creazione di ridgeline plots per analisi della distribuzione
+library(patchwork)  # Combinazione di più grafici ggplot2 in un unico layout
 
 
 
