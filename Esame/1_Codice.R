@@ -1,6 +1,7 @@
-# Analisi multi-temporale mediante indici spettrali (NDVI, NDMI, NBR) delle anomalie ambientali registrate nell'Esteros del Iberà (Argentina) fra 2019 e 2025.
+# Analisi multi-temporale mediante indici spettrali (NDVI, NDMI, NBR) delle anomalie ambientali registrate negli Esteros del Iberà (Argentina) fra 2019 e 2025.
 
-# Pacchetti impiegati per condurre l'analisi
+
+# Pacchetti impiegati in R per condurre l'analisi
 library(terra)      # Analisi e manipolazione di raster e dati geospaziali
 library(imageRy)    # Visualizzazione e gestione di immagini raster
 library(viridis)    # Palette di colori per ottimizzare la leggibilità grafica
@@ -9,8 +10,7 @@ library(ggridges)   # Creazione di ridgeline plots per analisi della distribuzio
 library(patchwork)  # Combinazione di più grafici ggplot2 in un unico layout
 
 
-
-# INDICI SPETTRALI
+# ANALISI INDICI SPETTRALI
 
 # Anni da processare
 anni = c(2019, 2020, 2021, 2022, 2023, 2024, 2025)
@@ -22,9 +22,8 @@ tab.indici = data.frame(Anno = integer(), NDVI = numeric(), NDMI = numeric(), NB
 for (anno in anni) {
   cat("Indici spettrali febbraio", anno, "\n")
 
-# percorso alle cartelle contenenti le bande
+# Percorso alle cartelle contenenti le bande
 path = file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff")
-
 
 # Caricare le bande con la funzione rast() del pacchetto terra
   red = rast(file.path(path, "B04.tiff"))
@@ -58,22 +57,21 @@ dir.create(out_dir, recursive = TRUE)
   cat("✓ Indici salvati in:", out_dir, "\n")
 }
 
-tab.indici
-
-# esporto la tabella degli indici
+# Esporto la tabella degli indici
 write.csv(tab.indici, file = "C:/Users/feder/Desktop/indici/valori_indici.csv", row.names = FALSE)
 
-# rimuovo i dati esportati per prevenire errori di sovrascrizione
+# Rimuovo i dati esportati per prevenire sovrascrizione in R
 rm(list=ls())
 
 
 # LINE PLOT: andamento (medie) NBR - NDVI - NDMI nella sequenza temporale 2019 - 2015
 
-# creo i dati per il dataframe
+# Creo i dati per il dataframe
 anno = rep(2019:2025, each = 3)
 indice = rep(c("NDVI", "NDMI", "NBR"), times = 7)
 valore = c(0.648,  0.190,  0.441, 0.619,  0.117,  0.372, 0.646,  0.160,  0.407, 0.361, -0.174, -0.002, 0.469, -0.057,  0.145, 0.665,  0.165,  0.423, 0.533, -0.014,  0.237)
 
+# Creo il dataframe
 medie = data.frame(Anno = anno, Indice = indice, Valore = valore)
  
 # Visualizzo il line plot
@@ -85,81 +83,65 @@ line_plot
 ggsave("Line_Plot.png", line_plot)
 
 
-
-
 # RIDGELINE PLOTS: analisi della distribuzione degli indici
 
-#NDVI
+# NDVI
 
-# Imposta la cartella dove sono i raster
+# Imposto la directory alla cartella contenente i raster
 setwd("C:/Users/feder/Desktop/indici/NDVI") 
  
-# Importa tutti i raster NDVI in un'unica riga
+# Importo tutti i raster NDVI in un'unica riga
 ndvi = rast(list.files(pattern = "NDVI\\d{2}\\.tif$"))
  
-# 3. Rinomina i layer con gli anni corretti
+# Rinomino i layer con gli anni corretti
 names(ndvi) = c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
 
-# rimuovo i valori=-1
+# Rimuovo i valori=-1
 ndvi[ndvi == -1] = NA
 
-# Ridgeline plot
+# Creo Ridgeline Plot mediante la funzione im.ridgeline() del pacchetto imageRy
 Rndvi = im.ridgeline(ndvi, scale=0.9, palette="viridis")
 Rndvi = Rndvi + labs(x = "NDVI", y = "anni") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rndvi
 
-# salvataggio
+# Salvataggio del Ridgeline Plot
 ggsave("ndvi_ridgeline.png", Rndvi, width = 8, height = 6, dpi = 300)
 
+# NDMI
 
-#NDMI
-
-# Imposta la cartella dove sono i raster
 setwd("C:/Users/feder/Desktop/indici/NDMI") 
  
-# Importa tutti i raster NDMI in un'unica riga
 ndmi = rast(list.files(pattern = "NDMI\\d{2}\\.tif$"))
  
-# 3. Rinomina i layer con gli anni corretti
 names(ndmi) = c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
 
-# rimuovo i valori=-1
 ndmi[ndmi == -1] = NA
 
-# Ridgeline plot
 Rndmi = im.ridgeline(ndmi, scale=0.9, palette="mako")
 Rndmi = Rndmi + labs(x = "NDMI", y = "anni") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rndmi
 
-# salvataggio
 ggsave("ndmi_ridgeline.png", Rndmi, width = 8, height = 6, dpi = 300)
 
 
 #NBR
 
-# Imposta la cartella dove sono i raster
 setwd("C:/Users/feder/Desktop/indici/NBR") 
- 
-# Importa tutti i raster NBR in un'unica riga
+
 nbr = rast(list.files(pattern = "NBR\\d{2}\\.tif$"))
- 
-# 3. Rinomina i layer con gli anni corretti
+
 names(nbr) = c("2019", "2020", "2021", "2022", "2023", "2024", "2025")
 
-# rimuovo i valori=-1
 nbr[nbr == -1] = NA
 
-# Ridgeline plot, forzare lo sfondo bianco per la palette usata (rocket)
 Rnbr = im.ridgeline(nbr, scale=0.9, palette="rocket")
 Rnbr = Rnbr + labs(x = "NBR", y = "anni") + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 Rnbr
 
-# salvataggio
 ggsave("nbr_ridgeline.png", Rnbr, width = 8, height = 6, dpi = 300)
 
 
-
-# CONFRONTO grafici NBR - NDMI
+# CONFRONTO RIDGELINE NBR - NDMI
 library(patchwork)
 
 # Rimuovo l'etichetta asse Y da NDMI
@@ -168,10 +150,8 @@ Rndmi_mod = Rndmi + theme(axis.title.y = element_blank())
 # Visualizzazione grafici affiancati
 NBR_NDMI = Rnbr + Rndmi_mod
 
-# Salva
+# Salvo l'output grafico
 ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
-
-
 
 
 
@@ -179,6 +159,7 @@ ggsave("NBR_NDMI.png", NBR_NDMI, width = 12, height = 6, dpi = 300)
 # ANALISI IMPATTO INCENDIO 2022 (DIC 2021 - FEB 2022)
 
 # Calcolo degli indici spettrali per valutare le condizioni pre incendio (dicembre 2021)
+
 # Percorso alla cartella contenete le bande di dicembre 2021
 path_dic21 = "C:/Users/feder/Desktop/29dic2021/geoTiff"
 
@@ -197,7 +178,9 @@ ndmi.feb22 = ndmi[[4]]
 # Calcolo Δ NBR: valori > 0.1 indicano danno da incendio
 dnbr = nbr.dic21 - nbr.feb22
 
+
 # % AREE AD IMPATTO LIEVE
+# Genero una maschera booleana per filtrare i valori
 i_low = dnbr > 0.1 & dnbr <= 0.27
 
 #pixel bruciati
@@ -211,6 +194,7 @@ perc_low = (pixel_low / pixel_tot) * 100
 perc_low
 # 30 %
 
+
 # % AREE AD IMPATTO MODERATO
 i_med = dnbr > 0.27 & dnbr <= 0.44
 pixel_med = global(i_med, fun = "sum", na.rm = TRUE)
@@ -218,12 +202,14 @@ perc_med = (pixel_med / pixel_tot) * 100
 perc_med
 # 19 %
 
+
 # % AREE AD IMPATTO ELEVATO
 i_high = dnbr > 0.44
 pixel_high = global(i_high, fun = "sum", na.rm = TRUE)
 perc_high = (pixel_high / pixel_tot) * 100
 perc_high
 # 24 %
+
 
 # % VEGETAZIONE RESIDUA
 veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
@@ -266,6 +252,7 @@ png("delta_sd_ndmi.png", width = 1600, height = 1200, res = 150)
 plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(11))
 dev.off()
 
+
 # % Area con > frammentazione nel 2024
 # Crea una maschera booleana: TRUE dove il delta sd > 0.05
 area_fram = delta_sd_ndmi > 0.05
@@ -284,10 +271,9 @@ perc_omog
 # 89 %
 
 
+# Visualizzazione dell'area bruciata a N-O del Parco nel 2022
 
-# Visualizzazione dell'area bruciata a N-O del Parco nel 2022 e confronto con Δ SD NDMI 2024vs2019
-
-# Importo la banda 8 che rende particolarmente bene sulle aree bruciate, evitando il calcolo NBR (superfluo)
+# Importo la banda 8 che rende bene sulle aree bruciate
 incendio22 = rast(C:/Users/feder/Desktop/Ibera_22/B08.tiff")
 plot (incendio22, col=cividis(100))
 
