@@ -36,7 +36,6 @@ Termine dell'estate australe:
 Le immagini multispettrali Sentinel-2 sono state acquisite dal [Copernicus Browser](https://browser.dataspace.copernicus.eu/?zoom=5&lat=50.16282&lng=20.78613&themeId=DEFAULT-THEME&demSource3D=%22MAPZEN%22&cloudCoverage=30&dateMode=SINGLE) 
 
 <br>
-<br>
 
 ### :fire: NBR (Normalized Burn Ratio)
 Indice impiegato per identificare aree colpite da incendi e valutarne la severità.
@@ -82,6 +81,7 @@ library(ggridges)   # Creazione di ridgeline plots per analisi della distribuzio
 library(patchwork)  # Combinazione di più grafici ggplot2 in un unico layout
 ```
 
+<br>
 
 **Ciclo *for***: ottimizzazione calcolo degli indici :
 ```r
@@ -114,6 +114,9 @@ for (anno in anni) {
 }
 ```
 
+<br>
+<br>
+
 ### :chart_with_downwards_trend: LINE PLOT
 
 Andamento delle medie spaziali degli indici nella serie temporale 2019 - 2025.
@@ -125,6 +128,7 @@ line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line
 
 <img src="img/Lineplot.png" width=70% />
 
+<br>
 
 ### :chart_with_upwards_trend: RIDGELINE PLOTS
 
@@ -143,6 +147,9 @@ NBR_NDMI = Rnbr + Rndmi_mod
 
 ![NBR_NDMI](img/NBR_NDMI.png)
 
+<br>
+<br>
+<br>
 
 ## 2. Analisi dell'impatto nel 2022
 
@@ -160,6 +167,9 @@ Confronto immagini *true color* di feb 2019 e feb 2022  :
 
 *Fonte: Copernicus Browser*
 
+<br>
+<br>
+
 - **IMPATTO LIEVE:  0.1 < dNBR < 0.27**
   
   ```r
@@ -170,6 +180,8 @@ Confronto immagini *true color* di feb 2019 e feb 2022  :
   ```
 
   = ***30 %*** della superficie analizzata*
+
+  <br>
   
 - **IMPATTO MODERATO:  0.27 < dNBR < 0.44**
 
@@ -180,6 +192,8 @@ Confronto immagini *true color* di feb 2019 e feb 2022  :
   ```
 
   = ***19 %*** *
+
+  <br>
   
 - **IMPATTO ELEVATO:  dNBR > 0.44** 
 
@@ -191,6 +205,9 @@ Confronto immagini *true color* di feb 2019 e feb 2022  :
 
   = ***24 %*** *
 
+<br>
+<br>
+
   **VEGETAZIONE RESIDUA**
 
   ```r
@@ -201,6 +218,9 @@ Confronto immagini *true color* di feb 2019 e feb 2022  :
 
   = ***11 %*** *
 
+<br>
+<br>
+<br>
 
 ## 3. Analisi della variabilità spaziale post disturbo
 
@@ -210,6 +230,7 @@ Area nord-ovest Riserva Iberá; superficie ~ 2.000 km²
 
 *Fonte: Municipalidad de Colonia Carlos Pellegrini*
 
+<br>
 
 ### *Δsd NDMI*:
 
@@ -244,6 +265,8 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
     ```
 
     = *89 %*
+
+<br>
 
 Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 2024:
 
