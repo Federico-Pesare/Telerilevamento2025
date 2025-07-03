@@ -134,9 +134,9 @@ NBR_NDMI = Rnbr + Rndmi_mod
 
 ## 2. Analisi dell'impatto nel 2022
 
-Variazione (Δ) NBR fra dicembre 2021 e febbraio 2022.
+Variazione dNBR (Differenced NBR) fra dicembre 2021 e febbraio 2022.
 
--1 < ΔNBR < 1
+-1 < dNBR < 1
 
 ```r
 dnbr = nbr.dic21 - nbr.feb22                        
@@ -148,7 +148,7 @@ Immagine *true color* del 7 febbraio 2022 :
 
 *Fonte: Copernicus Browser*
 
-- **IMPATTO LIEVE:  0.1 < ΔNBR < 0.27**
+- **IMPATTO LIEVE:  0.1 < dNBR < 0.27**
   
   ```r
   i_low = dnbr > 0.1 & dnbr <= 0.27                               # imposto il range
@@ -159,7 +159,7 @@ Immagine *true color* del 7 febbraio 2022 :
 
   = ***30 %*** della superficie analizzata*
   
-- **IMPATTO MODERATO:  0.27 < ΔNBR < 0.44**
+- **IMPATTO MODERATO:  0.27 < dNBR < 0.44**
 
   ```r
   i_med = dnbr > 0.27 & dnbr <= 0.44
@@ -169,7 +169,7 @@ Immagine *true color* del 7 febbraio 2022 :
 
   = ***19 %*** *
   
-- **IMPATTO ELEVATO:  ΔNBR > 0.44** 
+- **IMPATTO ELEVATO:  dNBR > 0.44** 
 
   ```r
   i_high = dnbr > 0.44
@@ -232,7 +232,5 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
 Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 2024:
 ![incendio_vs_evoluzione](img/incendio_deltasdndmi.png)
-
-
 
 
