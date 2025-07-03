@@ -139,9 +139,9 @@ NBR_NDMI = Rnbr + Rndmi_mod
 dnbr = nbr.dic21 - nbr.feb22                        
 ```
 
-Immagine *true color* del 7 febbraio 2022 :
+Confronto con immagini *true color* tra feb 2019 e feb 2022  :
 
-<img src="img/7feb2022.jpg" width=80% />
+<img src="img/2019_2022.png" width=80% />
 
 *Fonte: Copernicus Browser*
 
