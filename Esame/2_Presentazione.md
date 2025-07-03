@@ -198,7 +198,8 @@ Area nord-ovest Riserva Iberá; superficie ~ 2.000 km²
 <img src="img/IBERA'.png" width=80% />
 *Fonte: Municipalidad de Colonia Carlos Pellegrini*
 
-***Δsd NDMI***:
+
+### *Δsd NDMI*:
 
 Studio della variazione della deviazione standard associata al NDMI fra 2024 e 2019  (-1 < *Δsd* < 1)
 
