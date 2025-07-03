@@ -126,8 +126,11 @@ Grafico delle medie annuali mediante la funzione ggplot() del pacchetto ggplot2:
 line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line(size = 1.2) + geom_point(size = 1.4) + labs(x = "anni", y = "valore medio", color=NULL) + scale_x_continuous(breaks = 2019:2025) + scale_color_manual(values = c( "NDVI" = "forestgreen", "NDMI" = "cornflowerblue", "NBR"  = "firebrick")) + theme_minimal() + theme(panel.background = element_rect(fill = "white", colour = NA),plot.background = element_rect(fill = "white", colour = NA))
 ```
 
+<br>
+
 <img src="img/Lineplot.png" width=70% />
 
+<br>
 <br>
 
 ### :chart_with_upwards_trend: RIDGELINE PLOTS
@@ -144,6 +147,8 @@ Distribuzione di NBR e NDMI a confronto, sfruttando il pacchetto patchwork:
 ```r
 NBR_NDMI = Rnbr + Rndmi_mod
 ```
+
+<br>
 
 ![NBR_NDMI](img/NBR_NDMI.png)
 
