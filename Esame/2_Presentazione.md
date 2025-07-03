@@ -1,4 +1,4 @@
-# Gli *Esteros del Iberá* tra siccità e incendi: un'analisi multitemporale dal 2019
+# *Esteros del Iberá*, dinamiche ambientali tra siccità ed incendi
 
 ![Parque Iberà 2022](img/incendio2022.jpg)
 
