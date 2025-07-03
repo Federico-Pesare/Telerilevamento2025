@@ -21,6 +21,10 @@ Superficie analizzata: ~ 24.000 km²
 *Fonte: Municipalidad de Colonia Carlos Pellegrini*
 
 
+
+
+
+
 ## 1. Analisi multitemporale su indici spettrali
 
 Periodo di riferimento: febbraio, dal 2019 al 2025.
