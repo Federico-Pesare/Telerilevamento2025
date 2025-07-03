@@ -180,7 +180,7 @@ Immagine *true color* del 7 febbraio 2022 :
 
   = ***24 %*** *
 
-- **VEGETAZIONE RESIDUA** 
+  ### VEGETAZIONE RESIDUA
 
   ```r
   veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
