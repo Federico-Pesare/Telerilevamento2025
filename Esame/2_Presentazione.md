@@ -110,10 +110,6 @@ line_plot = ggplot(medie, aes(x = Anno, y = Valore, color = Indice)) + geom_line
 
 <img src="img/Lineplot.png" width=70% />
 
-FENOMENI CORRELATI AL TREND DEGLI INDICI:
-- *La Niña*: 2020-2023, 2025
-- *El Niño*: 2024
-- Incendi: 2022, 2023, 2025
 
 ### :chart_with_upwards_trend: RIDGELINE PLOTS
 
