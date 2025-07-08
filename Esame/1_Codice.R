@@ -142,12 +142,11 @@ ggsave("nbr_ridgeline.png", Rnbr, width = 8, height = 6, dpi = 300)
 
 
 # CONFRONTO RIDGELINE NBR - NDMI
-library(patchwork)
 
 # Rimuovo l'etichetta asse Y da NDMI
 Rndmi_mod = Rndmi + theme(axis.title.y = element_blank())
 
-# Visualizzazione grafici affiancati
+# Visualizzazione grafici affiancati grazie al pacchetto patchwork
 NBR_NDMI = Rnbr + Rndmi_mod
 
 # Salvo l'output grafico
@@ -179,8 +178,8 @@ ndmi.feb22 = ndmi[[4]]
 dnbr = nbr.dic21 - nbr.feb22
 
 
-# % AREE AD IMPATTO LIEVE
-# Genero una maschera booleana per filtrare i valori
+# Calcolo % AREE AD IMPATTO LIEVE
+# Genero un range per filtrare i valori
 i_low = dnbr > 0.1 & dnbr <= 0.27
 
 #pixel bruciati
@@ -195,7 +194,7 @@ perc_low
 # 30 %
 
 
-# % AREE AD IMPATTO MODERATO
+# Calcolo % AREE AD IMPATTO MODERATO
 i_med = dnbr > 0.27 & dnbr <= 0.44
 pixel_med = global(i_med, fun = "sum", na.rm = TRUE)
 perc_med = (pixel_med / pixel_tot) * 100
@@ -203,7 +202,7 @@ perc_med
 # 19 %
 
 
-# % AREE AD IMPATTO ELEVATO
+# Calcolo % AREE AD IMPATTO ELEVATO
 i_high = dnbr > 0.44
 pixel_high = global(i_high, fun = "sum", na.rm = TRUE)
 perc_high = (pixel_high / pixel_tot) * 100
@@ -211,7 +210,7 @@ perc_high
 # 24 %
 
 
-# % VEGETAZIONE RESIDUA
+# Calcolo % VEGETAZIONE RESIDUA
 veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
 pixel_vegres = global(veg_res, fun = "sum", na.rm = TRUE)
 perc_vegres = (pixel_vegres / pixel_tot) * 100
@@ -253,8 +252,7 @@ plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(11))
 dev.off()
 
 
-# % Area con > frammentazione nel 2024
-# Crea una maschera booleana: TRUE dove il delta sd > 0.05
+# % Area con > frammentazione nel 2024. Imposto il range > 0.5
 area_fram = delta_sd_ndmi > 0.05
 pixel_fram = global(area_fram, fun = "sum", na.rm = TRUE)
 pixel_tot = global(!is.na(delta_sd_ndmi), fun = "sum", na.rm = TRUE)
@@ -273,7 +271,7 @@ perc_omog
 
 # Visualizzazione dell'area bruciata a N-O del Parco nel 2022
 
-# Importo la banda 8 che rende bene sulle aree bruciate
+# Importo la banda 8 che permette una buona visualizzazione delle superfici bruciate
 incendio22 = rast(C:/Users/feder/Desktop/Ibera_22/B08.tiff")
 plot (incendio22, col=cividis(100))
 
