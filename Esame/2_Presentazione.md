@@ -253,7 +253,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
   <br>
   
-  - % area più frammentata: *Δsd NDMI* > 0.05
+  - % area più eterogenea: *Δsd NDMI* > 0.05
 
     ```r 
     area_fram = delta_sd_ndmi > 0.05
