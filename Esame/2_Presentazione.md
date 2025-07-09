@@ -287,12 +287,7 @@ Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 202
 <br>
 
 ## Conclusioni
-L'analisi sugli Esteros del Iberà ha rivelato un
-Lo studio dell'impatto causato dall'incendio del 2022 ha evidenziato come il 73% dell’area abbia subito danni considerevoli (24% ad alto impatto), mantenendo solo l’11% di vegetazione residua attiva. Questi dati indicano un’alterazione estesa, con effetti potenzialmente duraturi sulla struttura e funzione di questi ecosistemi umidi.
 
-<br>
-
-Il confronto tra febbraio 2019 e febbraio 2024 mostra una marcata omogeneizzazione strutturale in corrispondenza della aree impattate nel 2022, tipica delle fasi iniziali della successione secondaria post-incendio. 
-Al contrario, le aree limitrofe mostrano un incremento dell’eterogeneità locale, verosimilmente legato a processi di ricolonizzazione e frammentazione.
-Tali dinamiche risultano coerenti alle successioni post-incendio delle zone umide subtropicali. L'estensione d
+Il confronto tra febbraio 2019 e febbraio 2024 mostra una marcata omogeneizzazione strutturale in corrispondenza della aree impattate nel 2022. Al contrario, le aree limitrofe mostrano un incremento dell’eterogeneità locale, verosimilmente legato a processi di ricolonizzazione e frammentazione.
+Tali dinamiche risultano coerenti alle successioni secondarie post-incendio delle zone umide subtropicali. Tuttavia, l'entità dell'impatto associato alle forti pressioni antropiche e climatiche ha causato un'alterazione estesa negli Esteros del Iberà, ed il ritorno di condizioni avverse nel 2025 continua a comprometterne la resistenza e resilienza, con effetti potenzialmente duraturi sulla struttura funzionale di questi ecosistemi umidi.
 
