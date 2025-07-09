@@ -182,7 +182,7 @@ Confronto immagini *true color* di feb 2019 e feb 2022  :
   ```r
   i_low = dnbr > 0.1 & dnbr <= 0.27                               # imposto il range
   pixel_low = global(i_low, fun = "sum", na.rm = TRUE)            # calcolo i pixel nel range
-  pixel_tot = global(!is.na(dnbr), fun = "sum", na.rm = TRUE)     # calcolo i pixel totali
+  pixel_tot = global(!is.na(dnbr), fun = "sum")                   # calcolo i pixel totali
   perc_low = (pixel_low / pixel_tot) * 100                        # calcolo la percentuale
   ```
 
@@ -258,7 +258,7 @@ delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
     ```r 
     area_fram = delta_sd_ndmi > 0.05
     pixel_fram = global(area_fram, fun = "sum", na.rm = TRUE)
-    pixel_tot = global(!is.na(delta_sd_ndmi), fun = "sum", na.rm = TRUE)
+    pixel_tot = global(!is.na(delta_sd_ndmi), fun = "sum")
     perc_fram = (pixel_fram / pixel_tot) * 100
     ```
 
