@@ -209,7 +209,7 @@ perc_high
 # 24 %
 
 
-# Calcolo % VEGETAZIONE RESIDUA
+# Calcolo % VEGETAZIONE ATTIVA (RESIDUA)
 veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
 pixel_vegres = global(veg_res, fun = "sum", na.rm = TRUE)
 perc_vegres = (pixel_vegres / pixel_tot) * 100
