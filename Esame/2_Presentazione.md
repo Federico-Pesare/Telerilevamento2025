@@ -215,7 +215,7 @@ Confronto immagini *true color* di feb 2019 e feb 2022  :
 <br>
 <br>
 
-  **VEGETAZIONE RESIDUA**
+  **VEGETAZIONE ATTIVA (RESIDUA)**
 
   ```r
   veg_res = (ndvi.feb22 > 0.3) & (ndmi.feb22 > 0) & (dnbr < 0.1)
