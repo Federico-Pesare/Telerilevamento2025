@@ -242,7 +242,7 @@ sd_ndmi24 = focal(ndmi24, w=c(3,3), fun=sd, na.rm=TRUE)
 # Δ SD
 delta_sd_ndmi = sd_ndmi24 - sd_ndmi19
 
-# Visualizzo le aree che hanno subito frammentazione, sono rimaste invariate o sono diventate più omogenee
+# Visualizzo le aree che sono diventate più eterogenee, sono rimaste invariate o sono diventate più omogenee
 plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(11))
 
 # Esporto il file png, sfruttando la pallette "cividis"
@@ -251,7 +251,7 @@ plot(delta_sd_ndmi, main="Δ SD NDMI 2024 - 2019", col=cividis(11))
 dev.off()
 
 
-# % Area con > frammentazione nel 2024. Imposto il range > 0.5
+# % Area con > eterogeneità nel 2024. Imposto il range > 0.5
 area_fram = delta_sd_ndmi > 0.05
 pixel_fram = global(area_fram, fun = "sum", na.rm = TRUE)
 pixel_tot = global(!is.na(delta_sd_ndmi), fun = "sum", na.rm = TRUE)
