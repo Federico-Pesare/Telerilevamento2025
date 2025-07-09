@@ -43,7 +43,6 @@ path = file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff")
 
 # Aggiungo i risultati alla tabella
   tab.indici = rbind(tab.indici, data.frame(Anno = anno, NDVI = as.numeric(ndvi_mean), NDMI = as.numeric(ndmi_mean), NBR  = as.numeric(nbr_mean)))
-  rownames(tab.indici) = NULL
                                              
 # Inserisco il percorso per il salvataggio dei raster (all'interno della cartella "indici" che verrà creata appositamente)
 out_dir = file.path("C:/Users/feder/Desktop", "indici", as.character(anno))
@@ -272,7 +271,7 @@ perc_omog
 # Visualizzazione dell'area bruciata a N-O del Parco nel 2022
 
 # Importo la banda 8 che permette una buona visualizzazione delle superfici bruciate
-incendio22 = rast(C:/Users/feder/Desktop/Ibera_22/B08.tiff")
+incendio22 = rast("C:/Users/feder/Desktop/Ibera_22/B08.tiff")
 plot (incendio22, col=cividis(100))
 
 # Salvo il file png sfruttando la palette "cividis" 
