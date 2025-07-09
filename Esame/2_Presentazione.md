@@ -289,5 +289,18 @@ Confronto fra superfici incendiate nel 2022 ed evoluzione del territorio nel 202
 ## Conclusioni
 
 Il confronto tra febbraio 2019 e febbraio 2024 mostra una marcata omogeneizzazione strutturale in corrispondenza della aree impattate nel 2022. Al contrario, le aree limitrofe mostrano un incremento dell’eterogeneità locale, verosimilmente legato a processi di ricolonizzazione e frammentazione.
-Tali dinamiche risultano coerenti alle successioni secondarie post-incendio delle zone umide subtropicali. Tuttavia, l'entità dell'impatto associato alle forti pressioni antropiche e climatiche ha causato un'alterazione estesa negli Esteros del Iberà, ed il ritorno di condizioni avverse nel 2025 continua a comprometterne la resistenza e resilienza, con effetti potenzialmente duraturi sulla struttura funzionale di questi ecosistemi umidi.
+Tali dinamiche risultano coerenti alle successioni secondarie post-incendio delle zone umide subtropicali. Tuttavia, l'entità dell'impatto associato alle forti pressioni antropiche e climatiche ha causato un'alterazione estesa negli Esteros del Iberá, ed il ritorno di condizioni avverse nel 2025 continua a comprometterne la resistenza e resilienza, con effetti potenzialmente duraturi sulla struttura funzionale di questi ecosistemi umidi.
+
+<br>
+<br>
+<br>
+
+## Bibliografia
+
+- Key, C. H., & Benson, N. C. (2006). Landscape Assessment: Ground Measure of Severity, the Composite Burn Index; and Remote Sensing of Severity, the Normalized Burn Ratio.
+- Gomez, L. F., Cardozo, O. D. (2024). Los incendios y su impacto sobre las coberturas de la tierra en la Reserva Natural Iberá, Corrientes.
+- [U.S. Geological Survey](https://www.usgs.gov/)
+- Fundación Rewilding Argentina - Planificación y gobernanza 2019 - 2029
+
+
 
