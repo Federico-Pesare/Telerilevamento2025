@@ -25,7 +25,7 @@ for (anno in anni) {
 # Percorso alle cartelle contenenti le bande
 path = file.path("C:/Users/feder/Desktop/IBERA'", as.character(anno), "geoTiff")
 
-# Caricare le bande con la funzione rast() del pacchetto terra
+# Carico le bande con la funzione rast() del pacchetto terra
   red = rast(file.path(path, "B04.tiff"))
   nir = rast(file.path(path, "B08.tiff"))
   swir1 = rast(file.path(path, "B11.tiff"))
